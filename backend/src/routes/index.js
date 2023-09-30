@@ -1,9 +1,10 @@
 const { Router } = require('express')
+const userRouter = require('./userRoute')
+const productRouter = require('./productRoute')
 
 const router = Router()
 
-router.get('/', async(req, res) => {
-    res.status(200).json('hola')
-})
+router.use('/users', userRouter)
+router.use('/products', productRouter)
 
-module.exports = router
+module.exports = router 
