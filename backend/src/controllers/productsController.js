@@ -24,8 +24,8 @@ const deleteProductCtrl = async (id) => {
 }
 
 const createProduct = async (product) => {
-    const uploadedResponse = await cloudinary.uploader.upload(product.image)   // product.image = base64
-    product.image = uploadedResponse.secure_url
+    //const uploadedResponse = await cloudinary.uploader.upload(product.image)   // product.image = base64
+    //product.image = uploadedResponse.secure_url
     const newProduct = await Product.create(product)
     return newProduct
 }
