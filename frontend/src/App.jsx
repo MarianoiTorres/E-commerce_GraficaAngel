@@ -7,7 +7,7 @@ function App() {
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
+  useEffect(() => {    // Prueba para cargar el estado global
     dispatch(getAllProducts())
     console.log('listo');
   }, [])
