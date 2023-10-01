@@ -12,8 +12,8 @@ app.use(cors())
 app.use(morgan('dev'))
 
 app.use('/grafica', router)
-sequelize.sync({ alter: true }).then(() => {
+sequelize.sync({ force: true }).then(() => {
     app.listen(3001, () => { 
         console.log('server on port 3001');
     })
-})    
+})     
