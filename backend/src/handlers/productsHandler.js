@@ -38,8 +38,8 @@ const deleteProduct = async (req, res) => {
 
 const postProduct = async (req, res) => {
     try {
-        const { name, detail, stock } = req.body
-        const newProduct = await createProduct({ name, detail, stock })
+        const { name, detail, stock, price } = req.body
+        const newProduct = await createProduct({ name, detail, stock, price })
         res.status(200).json(newProduct)
     } catch (error) {
         res.status(400).json({ message: 'Error' })

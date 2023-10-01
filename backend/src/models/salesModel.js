@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
             },
             quantity: {
                 type: DataTypes.INTEGER,
-                allowNull: false, 
+                
             },
             userId: {
                 type: DataTypes.INTEGER,
@@ -21,6 +21,12 @@ module.exports = (sequelize) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             },
+            status: {
+                type: DataTypes.STRING
+            },
+            total: {
+                type: DataTypes.INTEGER
+            }
         }
     )
 

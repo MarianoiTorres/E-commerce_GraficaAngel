@@ -1,8 +1,10 @@
 const { Router } = require('express')
-const { postSale } = require('../handlers/salesHandler')
+const { createOrder, webhook, getSales } = require('../handlers/salesHandler')
 
 const salesRouter = Router()
 
-salesRouter.post('/', postSale)
+salesRouter.post('/create-order', createOrder)
+salesRouter.post('/webhook', webhook)
+salesRouter.get('/', getSales)
 
 module.exports = salesRouter
