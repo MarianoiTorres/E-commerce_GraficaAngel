@@ -1,9 +1,9 @@
-const { 
-    createProduct, 
-    getAllProducts, 
-    getProductById, 
-    deleteProductCtrl, 
-    updateProduct 
+const {
+    createProduct,
+    getAllProducts,
+    getProductById,
+    deleteProductCtrl,
+    updateProduct
 } = require("../controllers/productsController")
 
 
@@ -38,8 +38,9 @@ const deleteProduct = async (req, res) => {
 
 const postProduct = async (req, res) => {
     try {
-        const { name, detail, stock, price } = req.body
-        const newProduct = await createProduct({ name, detail, stock, price })
+        const { name, detail, stock, price, image } = req.body
+
+        const newProduct = await createProduct({ name, detail, stock, price, image })
         res.status(200).json(newProduct)
     } catch (error) {
         res.status(400).json({ message: 'Error' })
