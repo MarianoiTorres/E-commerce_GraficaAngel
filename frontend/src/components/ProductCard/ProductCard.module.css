@@ -1,0 +1,10 @@
+
+.container {
+    border: 1px solid red;
+    width: 250px;
+    height: fit-content;
+}
+
+.imagen {
+    width: 90%;
+}

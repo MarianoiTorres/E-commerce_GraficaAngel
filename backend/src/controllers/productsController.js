@@ -21,7 +21,7 @@ const getProductById = async (id) => {
 const deleteProductCtrl = async (id) => {
     const product = await Product.destroy({where: {id}})
     return product
-}
+} 
 
 const createProduct = async (product) => {
     //const uploadedResponse = await cloudinary.uploader.upload(product.image)   // product.image = base64

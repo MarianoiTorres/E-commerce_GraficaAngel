@@ -28,7 +28,8 @@ const newOrder = async (cart, userId) => {
         external_reference: String(userId)
     })
 
-    return result
+    //console.log(result.response.init_point);
+    return result.response.init_point
 }
 
 const receiveWebhook = async (payment) => {

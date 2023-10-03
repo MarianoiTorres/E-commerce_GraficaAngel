@@ -1,8 +1,19 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
   text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto; /* Agrega un desplazamiento vertical si el contenido es demasiado largo */
 }
 
 .logo {
