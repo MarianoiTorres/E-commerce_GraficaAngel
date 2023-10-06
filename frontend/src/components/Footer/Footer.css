@@ -28,12 +28,12 @@
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    color: white;
+    color: #E4E2DD;
 }
 
 
 a.links{
-    color: rgb(170, 170, 170);
+    color: #E4E2DD;
     text-decoration: none;
     
 }
@@ -41,6 +41,7 @@ a.links{
 p.links:hover{
     letter-spacing: 0.5px;
     transition: .4s ease;
+    color: #DF5725;
 }
 
 img.redes:hover{
@@ -68,7 +69,7 @@ img.redes:hover{
     line-height: 15px;
     margin: 0.5rem 0;
     cursor: pointer;
-    color: rgb(201, 201, 201);
+    color: #E4E2DD;
   
 }
 
@@ -88,18 +89,18 @@ img.redes:hover{
     font-size: 13px;
     line-height: 15px;
     margin-left: 2rem;
-    color: white;
+    color: #E4E2DD;
 }
 
 hr{
-    color: white !important;
+    color: #E4E2DD !important;
     width: 100%;
 }
 
 .angel__footer-copyright p{
     font-size: 13px;
     line-height: 15px;
-    color: rgb(255 , 255, 255);
+    color: #E4E2DD;
     font-weight: 600;
 }
 
