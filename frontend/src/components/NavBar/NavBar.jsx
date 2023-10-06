@@ -1,11 +1,44 @@
-import style from './NavBar.module.css'
-
-const NavBar = () => {
+import style from './NavBar.css'
+import {Component} from "react";
+import logo from './../../assets/logosinfondo.png'
+class NavBar extends Component {
+    state={clicked: false};
+    handleClick=() => {
+        this.setState({clicked:!this.state.clicked})
+    }
+render(){
     return (
-        <div className={style.container}>
-            NAV
-        </div>
+
+        <>
+        <nav><a href="#">
+            <img src={logo} alt="" className='logo'/></a>
+            <div>
+                <ul id='navbar' className={this.state.clicked ? "#navbar active" : "#navbar"}>
+                    <li>
+                        <a href="" className='active'>Inicio</a>
+                    </li>
+                    <li>
+                        <a href="">Tienda</a>
+                    </li>
+                    <li>
+                        <a href="">Sobre Nosotros</a>
+                    </li>
+                    <li>
+                        <a href="">Iniciar Sesión</a>
+                    </li>
+                    <li>
+                        <a href="">Registrar</a>
+                    </li>
+                </ul>
+            </div>
+            <div id='mobile' onClick={this.handleClick}>
+                <i id='bar' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars' }></i>
+              
+            </div>
+                
+            </nav>
+        </>
     )
 }
-
+}
 export default NavBar
