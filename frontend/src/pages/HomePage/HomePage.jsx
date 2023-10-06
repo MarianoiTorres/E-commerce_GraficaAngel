@@ -1,9 +1,9 @@
+import style from './Home.css'
 
-// Pagina de inicio
 const HomePage = () => {
     return (
         <div>
-            HOME
+            
         </div>
     )
 }
