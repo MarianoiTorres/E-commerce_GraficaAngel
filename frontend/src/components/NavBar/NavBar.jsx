@@ -24,6 +24,9 @@ render(){
                         <a href="">Sobre Nosotros</a>
                     </li>
                     <li>
+                        <a href="">Contacto</a>
+                    </li>
+                    <li>
                         <a href="">Iniciar Sesión</a>
                     </li>
                     <li>
