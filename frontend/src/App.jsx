@@ -29,7 +29,7 @@ function App() {
   return (
     <div className='app'>
       {
-        <NavBar />
+        location.pathname !== '/dashboard' && <NavBar />
       }
       <div className='content'>
         <Routes>
@@ -44,7 +44,7 @@ function App() {
         </Routes>
       </div>
       {
-        <Footer/>
+        location.pathname !== '/dashboard' && <Footer/>
       }
     </div>
   )

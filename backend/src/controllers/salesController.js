@@ -24,7 +24,7 @@ const newOrder = async (cart, userId) => {
             failure: 'http://localhost:3001/grafica/sales/failure',
             pending: 'http://localhost:3001/grafica/sales/pending'
         },
-        notification_url: 'https://b125-190-136-227-235.ngrok.io/grafica/sales/webhook',
+        notification_url: 'https://dd98-181-1-52-69.ngrok.io/grafica/sales/webhook',
         external_reference: String(userId)
     })
 
@@ -33,7 +33,7 @@ const newOrder = async (cart, userId) => {
 }
 
 const receiveWebhook = async (payment) => {
-
+    console.log('holaaaa');
     if (payment.type === 'payment') {
         const data = await mercadopago.payment.findById(payment['data.id'])
         const userId = await data.response.external_reference   //userId
@@ -58,7 +58,8 @@ const receiveWebhook = async (payment) => {
                     productId: Number(cartItem.id),
                     quantity: Number(cartItem.quantity),
                     status: data.response.status,
-                    total: total
+                    total: total,
+                    payment_method: data.response.payment_method.id
                 })
 
                 if (newSale)  // ===> Descuento de stock

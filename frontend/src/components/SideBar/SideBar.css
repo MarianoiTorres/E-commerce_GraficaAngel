@@ -1,0 +1,61 @@
+
+.containerSideBar {
+    
+    width: 18%;
+    height: 100vh;
+    
+}
+
+.containerLogo {
+    width: 100%;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerLogo img{
+    width: 75%;
+}
+
+.ulMenu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 7px;
+}
+
+.ulMenu li {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #E4E2DD;
+    transition: 0.3s ease-in-out;
+}
+
+.ulMenu li:hover {
+    color: #DF5725;
+    cursor: pointer;
+}
+
+.ulAccount {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 7px;
+}
+
+.ulAccount li {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #E4E2DD;
+    transition: 0.3s ease-in-out;
+}
+
+.ulAccount li:hover {
+    color: #DF5725;
+    cursor: pointer;
+}

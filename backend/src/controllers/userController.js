@@ -11,6 +11,8 @@ const createUser = async (user) => {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
+        age: user.age,
+        phone: user.phone,
         password: passwordHash
     })
     return newUser
