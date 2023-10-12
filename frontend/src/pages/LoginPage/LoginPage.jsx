@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import style from './LoginPage.module.css'
+import style from './LoginPage.css'
 import { useState } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 
 // Pagina para iniciar sesion
 const LoginPage = () => {
@@ -29,29 +29,40 @@ const LoginPage = () => {
                 console.log(response.data);
             })
 
-        setUser({
+        setUser({ 
             email: '',
             password: ''
         })
     }
 
     return (
-        <div className={style.container}>
+
+
+        
+        <div className={style.form}>
+         
             <form onSubmit={login} className={style.form}>
-
-                <input placeholder='Email' type="text" name="email" onChange={onChangeHandler} value={user.email} />
-
+            
+            <h1>Inicio de sesion</h1> 
+               <div className='input1'>
+                <input placeholder='Email' type="text" name="email" onChange={onChangeHandler} value={user.email} /> 
+                </div>
+                <div className='input2'>
                 <input placeholder='Password' type="password" name="password" onChange={onChangeHandler} value={user.password} />
-
+                </div>
+               <div className='boton'>
                 <button className={style.button} type="submit">Sign In</button>
+                </div>
 
                 <p>Don't have an account yet?</p>
 
                 <Link to='/register'><button className={style.button} type='button'>Sign Up</button></Link>
-
+                      
             </form>
-        </div>
-    )
+            </div>
+  
+            
+    ) 
 }
 
-export default LoginPage
+export default LoginPage 
