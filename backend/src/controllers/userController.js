@@ -44,7 +44,7 @@ const getUserById = async (id) => {
 }
 
 const getAllUsers = async () => {
-    const users = await User.findAll()
+    const users = await User.findAll({order: [['id', 'ASC']]})
     return users
 }
 

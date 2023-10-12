@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {    // Prueba para cargar el estado global
     dispatch(getAllProducts())
-    console.log('listo');
+    console.log('listo Productos');
   }, [])
 
   return (

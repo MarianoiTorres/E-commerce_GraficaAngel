@@ -13,6 +13,7 @@ const SideBar = ({setCurrentSelection}) => {
                 <li onClick={() => setCurrentSelection('usuarios')}>Usuarios</li>
                 <li onClick={() => setCurrentSelection('ventas')}>Ventas</li>
                 <li onClick={() => setCurrentSelection('productos')}>Productos</li>
+                <li onClick={() => setCurrentSelection('NewProduct')}>Crear Producto</li>
             </ul>
             <p>Opciones de Cuenta</p>
             <ul className='ulAccount'>

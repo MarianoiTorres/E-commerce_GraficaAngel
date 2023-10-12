@@ -22,7 +22,7 @@ const getProduct = async (req, res) => {
         const product = await getProductById(id)
         res.status(200).json(product)
     } catch (error) {
-        res.status(400).json({ message: 'Error' })
+        res.status(400).json({ error: error.message})
     }
 }
 
@@ -32,7 +32,7 @@ const deleteProduct = async (req, res) => {
         const deletedProduct = await deleteProductCtrl(id)
         res.status(200).json(deletedProduct)
     } catch (error) {
-        res.status(400).json({ message: 'Error' })
+        res.status(400).json({ error: error.message})
     }
 }
 
@@ -43,7 +43,7 @@ const postProduct = async (req, res) => {
         const newProduct = await createProduct({ name, detail, stock, price, image })
         res.status(200).json(newProduct)
     } catch (error) {
-        res.status(400).json({ message: 'Error' })
+        res.status(400).json({ error: error.message})
     }
 }
 
@@ -54,7 +54,7 @@ const putProduct = async (req, res) => {
         const updatedProduct = await updateProduct(product, id)
         res.status(200).json(updatedProduct)
     } catch (error) {
-        res.status(400).json({ message: 'Error' })
+        res.status(400).json({ error: error.message})
     }
 }
 

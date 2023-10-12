@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUsers } from "../../Redux/Actions/Actions";
+import { deleteUser, getAllUsers } from "../../Redux/Actions/Actions";
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const Users = () => {
@@ -29,17 +29,19 @@ const Users = () => {
                         <th>Mail</th>
                         <th>Edad</th>
                         <th>Número de Teléfono</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
                     {users.map((user, index) => (
                         <tr key={user.id}>
-                            <td>{index + 1}</td>
+                            <td>{user.id}</td>
                             <td>{user.firstname}</td>
                             <td>{user.lastname}</td>
                             <td>{user.email}</td>
                             <td>{user.age}</td>
                             <td>{user.phone}</td>
+                            <td><button onClick={() => dispatch(deleteUser(user.id))}>Eliminar</button></td>
                         </tr>
                     ))}
                 </tbody>
