@@ -8,11 +8,14 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
+  background-color: #E6E6DD;
+
 }
 
 .content {
   flex: 1;
+
   overflow-y: auto; /* Agrega un desplazamiento vertical si el contenido es demasiado largo */
 }
 

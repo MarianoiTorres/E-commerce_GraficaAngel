@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import Contact from './pages/Contact/Contact';
 
 
 function App() {
@@ -28,9 +29,7 @@ function App() {
 
   return (
     <div className='app'>
-      {
-        location.pathname !== '/dashboard' && <NavBar />
-      }
+ 
       <div className='content'>
         <Routes>
           <Route path='/' element={<HomePage />} />
@@ -41,11 +40,12 @@ function App() {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/products' element={<ProductsPage />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </div>
-      {
-        location.pathname !== '/dashboard' && <Footer/>
-      }
+      
+     
+      
     </div>
   )
 }

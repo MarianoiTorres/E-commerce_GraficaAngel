@@ -1,14 +1,18 @@
 .section__padding{
     padding: 0.5rem 13rem;
+   
+    background-image: url(../../assets/bg1.jpg);
+
+    
 }
 
-.footer{
-    background-image: url(./../../assets/bg1.jpg);
-}
+
 
 .angel__footer{
     display: flex;
     flex: column;
+
+
 }
 
 .angel__footer-links{
