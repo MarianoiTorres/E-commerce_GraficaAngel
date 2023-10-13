@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Products.css'
 import { useEffect, useState } from "react";
 import { deleteProduct, getAllProducts, updateProduct } from "../../Redux/Actions/Actions";
+
+
 const Products = () => {
 
     const dispatch = useDispatch()
@@ -19,7 +21,7 @@ const Products = () => {
     useEffect(() => {
         setProductsToFilter(products)
     }, [products])
-    
+
     useEffect(() => {
         dispatch(getAllProducts())
     }, [])
@@ -33,7 +35,7 @@ const Products = () => {
         setPreviewSource(productToEdit.image)
     };
 
-    const handleSaveClick = async(id) => {
+    const handleSaveClick = async (id) => {
         const product = {
             name: editedName,
             price: Number(editedPrice),
@@ -77,11 +79,11 @@ const Products = () => {
                 <h1>PRODUCTOS</h1>
             </div>
             <div className="containerButtons">
-                <input type="text" onChange={searchProductByName} placeholder="Buscar producto"/>
+                <input type="text" onChange={searchProductByName} placeholder="Buscar producto" className="searchProduct" />
             </div>
 
 
-            <Table responsive>
+            <Table responsive bordered hover >
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -109,7 +111,7 @@ const Products = () => {
                                     product.name
                                 )}
                             </td>
-                            <td>
+                            <td>$
                                 {editProductId === product.id ? (
                                     <input
                                         type="text"
@@ -136,18 +138,21 @@ const Products = () => {
                             <td>
                                 {
                                     editProductId === product.id ?
-                                        <input type="file" name="image" onChange={handleFileInputChange} value={fileInputState} />
+                                        <div class="input-file-container">
+                                            <input type="file" name="image" onChange={handleFileInputChange} value={fileInputState} class="input-file"/>
+                                            <label for="fileInput" class="custom-file-label">Seleccionar archivo</label>
+                                        </div>
                                         : <img src={product.image} alt="" className="tableImage" />
                                 }
                             </td>
-                            <td>
+                            <td >
                                 {editProductId === product.id ? (
                                     <button onClick={() => handleSaveClick(product.id)}>Guardar</button>
                                 ) : (
                                     <button onClick={() => handleEditClick(product.id)}>Editar</button>
                                 )}
                             </td>
-                            <td><button onClick={() => dispatch(deleteProduct(product.id))}>Eliminar</button></td>
+                            <td ><button className="buttonDeleteProduct" onClick={() => dispatch(deleteProduct(product.id))}>Eliminar</button></td>
                         </tr>
                     ))}
                 </tbody>

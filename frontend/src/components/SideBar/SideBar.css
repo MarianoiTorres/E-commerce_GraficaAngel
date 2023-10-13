@@ -1,9 +1,8 @@
 
 .containerSideBar {
-    
+    background-image: url(../../assets/bg1.jpg);
     width: 18%;
     height: 100vh;
-    
 }
 
 .containerLogo {
@@ -24,7 +23,9 @@
     flex-direction: column;
     text-align: left;
     gap: 7px;
+    padding: 0;
 }
+
 
 .ulMenu li {
     text-decoration: none;
@@ -32,6 +33,11 @@
     font-weight: 600;
     color: #E4E2DD;
     transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 6px;
+    padding-left:8px;
 }
 
 .ulMenu li:hover {
@@ -45,6 +51,8 @@
     flex-direction: column;
     text-align: left;
     gap: 7px;
+    padding: 0;
+    
 }
 
 .ulAccount li {
@@ -53,9 +61,21 @@
     font-weight: 600;
     color: #E4E2DD;
     transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 6px;
+    padding-left:8px;
 }
 
 .ulAccount li:hover {
     color: #DF5725;
     cursor: pointer;
+}
+
+.titlesSideBar {
+    font-weight: 700;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

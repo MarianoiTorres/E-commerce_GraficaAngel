@@ -1,9 +1,8 @@
-import style from './Home.css'
 
 const HomePage = () => {
     return (
         <div>
-            
+            a
         </div>
     )
 }

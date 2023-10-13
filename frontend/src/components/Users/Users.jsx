@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getAllUsers } from "../../Redux/Actions/Actions";
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Users.css'
 const Users = () => {
     const users = useSelector(state => state.users)
 
@@ -41,7 +42,7 @@ const Users = () => {
                             <td>{user.email}</td>
                             <td>{user.age}</td>
                             <td>{user.phone}</td>
-                            <td><button onClick={() => dispatch(deleteUser(user.id))}>Eliminar</button></td>
+                            <td className="tdButtonContainer"><button className='buttonDeleteUser' onClick={() => dispatch(deleteUser(user.id))}>Eliminar</button></td>
                         </tr>
                     ))}
                 </tbody>

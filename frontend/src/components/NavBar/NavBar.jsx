@@ -1,4 +1,4 @@
-import style from './NavBar.css'
+import './NavBar.css'
 import {Component} from "react";
 import logo from './../../assets/logosinfondo.png'
 class NavBar extends Component {

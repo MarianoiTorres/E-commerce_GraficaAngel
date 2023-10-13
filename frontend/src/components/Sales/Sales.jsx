@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllSales, getAllUsers } from "../../Redux/Actions/Actions";
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Sales.css'
 const Sales = () => {
     const users = useSelector(state => state.sales)
 

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import './NewProduct.css'
 import axios from 'axios'
+import Form from 'react-bootstrap/Form';
 const NewProduct = () => {
 
     const [product, setProduct] = useState({
@@ -56,9 +57,9 @@ const NewProduct = () => {
         <div className="containerCreateProduct">
             <div className="containerForm">
                 <form onSubmit={handleSubmit} className="formCreateNewProduct">
-                    <h3>Nuevo Producto</h3>
+                    <h3 className="titleFormProduct">Nuevo Producto</h3>
                     <div className='labelsAndInputs'>
-                        <label htmlFor="name">Nombre:</label>
+                        <label htmlFor="name">Nombre</label>
                         <input
                             type="text"
                             id="name"
@@ -68,7 +69,7 @@ const NewProduct = () => {
                         />
                     </div>
                     <div className='labelsAndInputs'>
-                        <label htmlFor="detail">Detalle:</label>
+                        <label htmlFor="detail">Detalle</label>
                         <input
                             type="text"
                             id="detail"
@@ -78,7 +79,7 @@ const NewProduct = () => {
                         />
                     </div>
                     <div className='labelsAndInputs'>
-                        <label htmlFor="stock">Stock:</label>
+                        <label htmlFor="stock">Stock</label>
                         <input
                             type="number"
                             id="stock"
@@ -88,7 +89,7 @@ const NewProduct = () => {
                         />
                     </div>
                     <div className='labelsAndInputs'>
-                        <label htmlFor="price">Precio:</label>
+                        <label htmlFor="price">Precio</label>
                         <input
                             type="number"
                             id="price"
@@ -97,11 +98,11 @@ const NewProduct = () => {
                             onChange={handleChange}
                         />
                     </div>
-                    <div className='labelsAndInputs'>
-                        <label htmlFor="image">Imagen:</label>
-                        <input type="file" name="image" id="image" onChange={handleFileInputChange} value={fileInputState} />
-                    </div>
-                    <button type="submit">Guardar</button>
+                    <Form.Group controlId="formFile" className='labelsAndInputs'>
+                        <Form.Label>Imagen</Form.Label>
+                        <Form.Control type="file" onChange={handleFileInputChange} value={fileInputState} className="labelBootstrap"/>
+                    </Form.Group>
+                    <button type="submit" className="buttonSubmit">Guardar</button>
                 </form>
             </div>
             <div className="containerPreviewCard">
