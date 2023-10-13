@@ -60,7 +60,6 @@
     font-size: 1rem;
     font-weight: 600;
     color: #E4E2DD;
-    transition: 0.3s ease-in-out;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -68,9 +67,19 @@
     padding-left:8px;
 }
 
-.ulAccount li:hover {
+.ulAccount li a {
+    text-decoration: none;
+    color: #E4E2DD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.ulAccount li a:hover {
     color: #DF5725;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
 .titlesSideBar {

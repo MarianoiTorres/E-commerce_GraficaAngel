@@ -5,6 +5,7 @@ import { FaMoneyBillTrendUp } from 'react-icons/fa6';
 import { IoIosCreate } from 'react-icons/io';
 import { AiFillHome } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const SideBar = ({setCurrentSelection}) => {
 
@@ -22,8 +23,8 @@ const SideBar = ({setCurrentSelection}) => {
             </ul>
             <p className='titlesSideBar'>Opciones de Cuenta</p>
             <ul className='ulAccount'>
-                <li><AiFillHome />Inicio</li>
-                <li><FiLogOut/>Cerrar sesion</li>
+                <li><Link to='/'><AiFillHome />Inicio</Link></li>
+                <li><Link to='/'><FiLogOut/>Cerrar sesion</Link></li>
             </ul>
         </div>
     )
