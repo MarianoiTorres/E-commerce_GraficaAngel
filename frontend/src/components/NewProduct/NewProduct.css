@@ -14,6 +14,7 @@
 
 
 .formCreateNewProduct {
+
     margin-top: 5%;
     gap: 20px;
     width: 70%;
@@ -36,6 +37,8 @@
     height: 34px;
     border-bottom: 0.12em solid #E4E2DD;
     color: #E4E2DD;
+    border-radius: 0;
+    width: 100%;
 }
 
 .labelsAndInputs input:hover{

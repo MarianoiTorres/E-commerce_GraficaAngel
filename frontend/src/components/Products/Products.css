@@ -10,6 +10,7 @@
     border-bottom: 1px solid #060709;
     outline: none;
     color: black;
+    border-radius: 0;
 }
 
 .containerTitleProducts {
@@ -17,6 +18,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.containerTitleProducts h1 {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .containerButtons {
@@ -56,7 +63,7 @@
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-      
+    width: 90%
   }
 
   .buttonDeleteProduct {
