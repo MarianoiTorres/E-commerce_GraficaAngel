@@ -24,7 +24,7 @@ const newOrder = async (cart, userId) => {
             failure: 'http://localhost:3001/grafica/sales/failure',
             pending: 'http://localhost:3001/grafica/sales/pending'
         },
-        notification_url: 'https://b125-190-136-227-235.ngrok.io/grafica/sales/webhook',
+        notification_url: 'https://0e14-181-1-52-69.ngrok.io/grafica/sales/webhook',
         external_reference: String(userId)
     })
 
@@ -39,7 +39,7 @@ const receiveWebhook = async (payment) => {
         const userId = await data.response.external_reference   //userId
         const user = await User.findByPk(userId)
         const items = await data.response.additional_info.items
-        console.log(items);
+        console.log(data.response.date_approved);
         const productsId = items.map(product => product.id)
 
         const allProducts = await Product.findAll({
@@ -102,8 +102,8 @@ const receiveWebhook = async (payment) => {
                             </thead>
                             <tbody>
                               ${items
-                                .map(
-                                  (product) => `
+                        .map(
+                            (product) => `
                                     <tr>
                                       <td>${product.title}</td>
                                       <td>${product.quantity}</td>
@@ -111,8 +111,8 @@ const receiveWebhook = async (payment) => {
                                       <td>$${product.unit_price * product.quantity}</td>
                                     </tr>
                                   `
-                                )
-                                .join('')}
+                        )
+                        .join('')}
                             </tbody>
                         </table>
                         </body>
@@ -121,6 +121,38 @@ const receiveWebhook = async (payment) => {
 
             };
 
+            const mailOptionsSale = {
+                from: 'Remitente <practiceapplications0@gmail.com>',
+                to: user.email,
+                subject: `Pago Exitoso`,
+                html: `
+                <html>
+                    <head>
+                      <title>Confirmación de Compra</title>
+                    </head>
+                    <body>
+                      <h1>Confirmación de Compra</h1>
+                      <p>Le informamos que se ha realizado una nueva compra en su tienda en línea. A continuación, se detallan los datos de la transacción:</p>
+                      <ul>
+                        <li><strong>Nombre del Cliente:</strong> ${user.firstname + ' ' + user.lastname}</li>
+                        <li><strong>Fecha y Hora de la Compra:</strong></li>
+                        <li><strong>Número de Pedido:</strong> [Número de Pedido]</li>
+                      </ul>
+                      <p>Productos Adquiridos:</p>
+                      <ul>
+                        <li>[Nombre del Producto 1]</li>
+                        <li>[Nombre del Producto 2]</li>
+                        <!-- Agrega más elementos de lista para productos adicionales -->
+                      </ul>
+                      <p><strong>Total de la Compra:</strong> [Monto Total]</p>
+                      <p><strong>Método de Pago:</strong> [Método de Pago Utilizado]</p>
+                      <p>Por favor, asegúrese de revisar esta transacción y prepare los productos para su envío o entrega. Si tiene alguna pregunta o necesita más información, no dude en ponerse en contacto con el cliente.</p>
+                      <p>Gracias por confiar en nosotros.</p>
+                      <p>Atentamente,<br>[Nombre de la Tienda]</p>
+                    </body>
+                </html>
+                `
+            }
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
                     console.error('Error al enviar el correo:', error);
@@ -129,7 +161,7 @@ const receiveWebhook = async (payment) => {
                 }
             });
         }
-        
+
         return sales
     }
 }
