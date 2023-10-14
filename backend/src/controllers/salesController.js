@@ -33,7 +33,7 @@ const newOrder = async (cart, userId) => {
 }
 
 const receiveWebhook = async (payment) => {
-
+    console.log('holaaaa');
     if (payment.type === 'payment') {
         const data = await mercadopago.payment.findById(payment['data.id'])
         const userId = await data.response.external_reference   //userId
@@ -58,7 +58,8 @@ const receiveWebhook = async (payment) => {
                     productId: Number(cartItem.id),
                     quantity: Number(cartItem.quantity),
                     status: data.response.status,
-                    total: total
+                    total: total,
+                    payment_method: data.response.payment_method.id
                 })
 
                 if (newSale)  // ===> Descuento de stock
