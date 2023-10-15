@@ -6,7 +6,7 @@
 }
 
 .containerForm {
-    color: black;
+
     width: 60%;
     display: flex;
     justify-content: center;
@@ -35,8 +35,8 @@
     background: none;
     outline: none;
     height: 34px;
-    border-bottom: 0.12em solid #060709;
-    color: black;
+    border-bottom: 0.12em solid #E4E2DD;
+    color: #E4E2DD;
     border-radius: 0;
     width: 100%;
 }
@@ -48,13 +48,13 @@
 
 .labelBootstrap {
     background-color:#e2e2e2 !important;
-    color: #060709 !important;
+    color: black !important;
     border: none !important;
 }
 
 .buttonSubmit {
-    background-color: #060709;
-
+    background-color: #e2e2e2;
+    color: black;
     font-weight: 700;
     width: 30%;
 
@@ -76,8 +76,7 @@
 .previewCard {
     width: 60%;
     height: 65%;
-    border: 1px solid #060709;
-    color: #060709;
+    border: 1px solid white;
 }
 
 .previewCard img {
