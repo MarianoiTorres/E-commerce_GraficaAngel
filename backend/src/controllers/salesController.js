@@ -39,7 +39,7 @@ const receiveWebhook = async (payment) => {
         const userId = await data.response.external_reference   //userId
         const user = await User.findByPk(userId)
         const items = await data.response.additional_info.items
-        console.log(data.response.date_approved);
+        console.log(data.response.transaction_details.total_paid_amount);
         const productsId = items.map(product => product.id)
 
         const allProducts = await Product.findAll({
@@ -124,8 +124,8 @@ const receiveWebhook = async (payment) => {
 
             const mailOptionsSale = {
                 from: 'Remitente <practiceapplications0@gmail.com>',
-                to: user.email,
-                subject: `Pago Exitoso`,
+                to: 'marianotorres699@gmail.com',
+                subject: `Nueva Venta - Grafica Angel`,
                 html: `
                 <html>
                     <head>
@@ -136,27 +136,49 @@ const receiveWebhook = async (payment) => {
                       <p>Le informamos que se ha realizado una nueva compra en su tienda en línea. A continuación, se detallan los datos de la transacción:</p>
                       <ul>
                         <li><strong>Nombre del Cliente:</strong> ${user.firstname + ' ' + user.lastname}</li>
-                        <li><strong>Fecha y Hora de la Compra:</strong></li>
-                        <li><strong>Número de Pedido:</strong> [Número de Pedido]</li>
-                      </ul>
+                        <li><strong>Fecha de la Compra:</strong> ${data.response.date_approved.split("T")[0]}</li>
                       <p>Productos Adquiridos:</p>
-                      <ul>
-                        <li>[Nombre del Producto 1]</li>
-                        <li>[Nombre del Producto 2]</li>
-                        <!-- Agrega más elementos de lista para productos adicionales -->
-                      </ul>
-                      <p><strong>Total de la Compra:</strong> [Monto Total]</p>
-                      <p><strong>Método de Pago:</strong> [Método de Pago Utilizado]</p>
-                      <p>Por favor, asegúrese de revisar esta transacción y prepare los productos para su envío o entrega. Si tiene alguna pregunta o necesita más información, no dude en ponerse en contacto con el cliente.</p>
-                      <p>Gracias por confiar en nosotros.</p>
-                      <p>Atentamente,<br>[Nombre de la Tienda]</p>
+                      <table border="1">
+                            <thead>
+                              <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              ${items
+                        .map(
+                            (product) => `
+                                    <tr>
+                                      <td>${product.title}</td>
+                                      <td>${product.quantity}</td>
+                                      <td>$${product.unit_price}</td>
+                                      <td>$${product.unit_price * product.quantity}</td>
+                                    </tr>
+                                  `
+                        )
+                        .join('')}
+                            </tbody>
+                        </table>
+                      <p><strong>Total de la Compra:</strong> ${data.response.transaction_details.total_paid_amount}</p>
+                      <p><strong>Método de Pago:</strong> ${data.response.payment_method.id}</p
                     </body>
                 </html>
                 `
             }
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
-                    console.error('Error al enviar el correo:', error);
+                    console.error('Error al enviar el correo al cliente:', error);
+                } else {
+                    console.log('Correo enviado:', info.response);
+                }
+            });
+
+            transporter.sendMail(mailOptionsSale, (error, info) => {
+                if (error) {
+                    console.error('Error al enviar el correo al propietario:', error);
                 } else {
                     console.log('Correo enviado:', info.response);
                 }
