@@ -1,0 +1,90 @@
+
+.containerCreateProduct {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.containerForm {
+
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.formCreateNewProduct {
+
+    margin-top: 5%;
+    gap: 20px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.labelsAndInputs {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    text-align: left;
+}
+
+.labelsAndInputs input {
+    border: none;
+    background: none;
+    outline: none;
+    height: 34px;
+    border-bottom: 0.12em solid #E4E2DD;
+    color: #E4E2DD;
+    border-radius: 0;
+    width: 100%;
+}
+
+.labelsAndInputs input:hover{
+    border-color: #E37447;
+    transition: 0.3s ease ;
+}
+
+.labelBootstrap {
+    background-color:#e2e2e2 !important;
+    color: black !important;
+    border: none !important;
+}
+
+.buttonSubmit {
+    background-color: #e2e2e2;
+    color: black;
+    font-weight: 700;
+    width: 30%;
+
+}
+
+.buttonSubmit:hover {
+    background-color: #E37447;
+    color: white;
+    transition: 0.2s ease;
+}
+
+.containerPreviewCard {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.previewCard {
+    width: 60%;
+    height: 65%;
+    border: 1px solid white;
+}
+
+.previewCard img {
+    width: 90%;
+}
+
+.titleFormProduct {
+    padding-top: 15px;
+    text-align: center;
+    font-size: 35px;
+}

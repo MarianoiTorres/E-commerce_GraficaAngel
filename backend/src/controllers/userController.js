@@ -11,6 +11,8 @@ const createUser = async (user) => {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
+        age: user.age,
+        phone: user.phone,
         password: passwordHash
     })
     return newUser
@@ -42,7 +44,7 @@ const getUserById = async (id) => {
 }
 
 const getAllUsers = async () => {
-    const users = await User.findAll()
+    const users = await User.findAll({order: [['id', 'ASC']]})
     return users
 }
 

@@ -1,4 +1,4 @@
-import style from './Footer.css'
+import './Footer.css'
 import facebook from '../../assets/facebook.png'
 import twitter from '../../assets/twitter.png'
 import web from '../../assets/web.png'
