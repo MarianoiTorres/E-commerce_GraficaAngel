@@ -13,11 +13,18 @@
     border-radius: 0;
 }
 
+.tableHead tr th{
+  background-color: #E37447  !important;
+  border: none;
+  color: #E4E2DD;
+}
+
 .containerTitleProducts {
     height: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #060709;
 }
 
 .containerTitleProducts h1 {

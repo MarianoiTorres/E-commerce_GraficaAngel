@@ -10,3 +10,9 @@
     padding: 0;
     margin: 0;
   }
+
+  .tableHead tr th{
+    background-color: #E37447  !important;
+    border: none;
+    color: #E4E2DD;
+  }

@@ -22,7 +22,7 @@ const Sales = () => {
 
 
             <Table responsive>
-                <thead>
+                <thead className="tableHead">
                     <tr>
                         <th>Id</th>
                         <th>Producto</th>
