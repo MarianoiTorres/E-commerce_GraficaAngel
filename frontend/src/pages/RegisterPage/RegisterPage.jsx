@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import style from './RegisterPage.module.css'
+import './RegisterPage.css'
 import axios from 'axios'
 import { useState } from 'react';
 
@@ -38,18 +38,30 @@ const RegisterPage = () => {
     }
 
     return (
-        <div className={style.container}>
-            <form onSubmit={createNewUser} className={style.form}>
-                <input placeholder="Name" type="text" name="firstname" onChange={onChangeHandler} value={user.firstname} />
+        <div className='containerRegister'>
+            <div className='messageRegister'>
+                Bienvenido
+            </div>
+            <div className='containerForm'>
+                <div className='containerTitleForm'>
+                    <p>Registro</p>
+                </div>
+                <form onSubmit={createNewUser} className='formRegister'>
+                    <input placeholder="Nombre" type="text" name="firstname" onChange={onChangeHandler} value={user.firstname} />
 
-                <input placeholder="Surname" type="text" name="lastname" onChange={onChangeHandler} value={user.lastname} />
+                    <input placeholder="Apellido" type="text" name="lastname" onChange={onChangeHandler} value={user.lastname} />
 
-                <input placeholder="Email" type="text" name="email" onChange={onChangeHandler} value={user.email} />
+                    <input placeholder="Edad" type="number" name="age" onChange={onChangeHandler} value={user.age} />
 
-                <input placeholder="Password" type="password" name="password" onChange={onChangeHandler} value={user.password} />
+                    <input placeholder="Celular" type="tel" name="phone" onChange={onChangeHandler} value={user.phone} />
 
-                <button className={style.button} type="submit">Sign Up</button>
-            </form>
+                    <input placeholder="Email" type="text" name="email" onChange={onChangeHandler} value={user.email} />
+
+                    <input placeholder="Contraseña" type="password" name="password" onChange={onChangeHandler} value={user.password} />
+
+                    <button className='buttonRegister' type="submit">Registrarse</button>
+                </form>
+            </div>
         </div>
     )
 }

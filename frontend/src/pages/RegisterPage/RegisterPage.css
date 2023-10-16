@@ -1,0 +1,77 @@
+
+.containerRegister {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.messageRegister {
+    width: 40%;
+    background-color: #E37447;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.containerForm {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.formRegister {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.formRegister input {
+    height: 40px;
+    width: 100%;
+    background-color: #E4E2DD;
+    color: #060709;
+    outline: none;
+}
+
+.formRegister input:focus {
+    border: 2px solid #DF5725;
+}
+
+.formRegister input:focus::placeholder {
+    color: #DF5725;
+}
+
+.formRegister input::placeholder {
+    color: #060709;
+    font-weight: 500;
+}
+
+.containerTitleForm {
+
+    width: 45%;
+}
+
+.containerTitleForm p {
+    font-size: 40px;
+    margin: 0;
+    text-align: left;
+    color: #E37447;
+    letter-spacing: 2px;
+}
+
+.buttonRegister {
+    width: 100%;
+    border-radius: 50px;
+    background-color: #E37447;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.buttonRegister:hover {
+    background-color: #DF5725;
+}
