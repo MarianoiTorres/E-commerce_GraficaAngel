@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
-import style from './CartPage.module.css'
+import './CartPage.css'
+import NavBar from "../../components/NavBar/NavBar"
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
 // El carrito de compras
 const CartPage = () => {
 
@@ -56,72 +60,77 @@ const CartPage = () => {
     }
 
     return (
-        <div className={style.container}>
-            <div className={style.products}>
-                {/* USA EL MISMO FORMATO DE AUMENTAR O RESTAR CANTIDAD (EL NUMERO CON LOS BOTONES) */}
-                <div className={style.product}>
-                    <img src='https://imgs.search.brave.com/epwPAreUxFyJ6stGEvpSwOX7QpJ51g9fnEfs2phquFw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZWxlbWVudGkuY29t/LmFyL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA4LzI5MTkz/MDM1LzVlYjFlYzhi/NjBmOTcuanBn' alt="" className={style.image} />
-                    <p>Taza</p>
-                    <p>Precio: 500</p>
-                    <div className={style.quantity}>
-                        <button onClick={() => restarCantidad(product.id)}>-</button>
-                        <p>1</p>
-                        <button onClick={() => aumentarCantidad(product.id)}>+</button>
+        <div className="containerCart">
+            <table className="cart-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th className="quantityTh">Cantidad</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        cart.map((product) => {
+                            return (
+                                <tr className="product">
+                                    <td className='containerImageProduct'>
+                                        <button>X</button>
+                                        <img src={product.image} alt="" className='imageProduct' />
+                                    </td>
+                                    <td>{product.name}</td>
+                                    <td>${product.price}</td>
+                                    <td className="quantityTd">
+                                        <button onClick={() => restarCantidad(product.id)}>-</button>
+                                        <p>{product.quantity}</p>
+                                        <button onClick={() => aumentarCantidad(product.id)}>+</button>
+                                    </td>
+                                    <td>${product.price * product.quantity}</td>
+                                </tr>
+
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+            <div className="containerTotalCart">
+                <div className="totalCart">
+                    <div className="containerTitleTotalCart">
+                        <p>Total Carrito</p>
                     </div>
-                </div>
-                <div className={style.product}>
-                    <img src='https://imgs.search.brave.com/epwPAreUxFyJ6stGEvpSwOX7QpJ51g9fnEfs2phquFw/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/ZWxlbWVudGkuY29t/LmFyL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIwLzA4LzI5MTkz/MDM1LzVlYjFlYzhi/NjBmOTcuanBn' alt="" className={style.image} />
-                    <p>Taza</p>
-                    <p>Precio: 500</p>
-                    <div className={style.quantity}>
-                        <button onClick={() => restarCantidad(product.id)}>-</button>
-                        <p>1</p>
-                        <button onClick={() => aumentarCantidad(product.id)}>+</button>
+                    <div className="total">
+                        <p>Subtotal </p>
+                        <p>$
+                            {cart.reduce((acumulador, producto) => {
+                                const subtotal = producto.price * producto.quantity;
+                                return acumulador + subtotal;
+                            }, 0)}
+                        </p>
+                    </div>
+                    <DropdownButton  title="Opciones de Envío" className="dropDownCart " >
+                        <Dropdown.Item href="#/action-1">Elija Cómo Recibir su Pedido</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Retirar en local</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Envio a domicilio</Dropdown.Item>
+                    </DropdownButton>
+                    <div className="total">
+                        <p>Total </p>
+                        <p>$
+                            {cart.reduce((acumulador, producto) => {
+                                const subtotal = producto.price * producto.quantity;
+                                return acumulador + subtotal;
+                            }, 0)}
+                        </p>
+                    </div>
+                    <div className="containerButtonBuy">
+                        <button onClick={crearOrden}>Comprar</button>
                     </div>
                 </div>
             </div>
-            <div>
-                <p>Total: {cart.reduce((acumulador, producto) => {
-                    const subtotal = producto.price * producto.quantity;
-                    return acumulador + subtotal;
-                }, 0)}</p>
-                <button>Borrar carrito</button>
-                <button onClick={crearOrden}>Comprar</button>
-            </div>
-        </div>
+        </div >
     )
 }
 
 export default CartPage
 
-
-
-
-/*
-
-========== ESTO DEPENDE DE LA BASE DE DATOS (NO ELIIMINAR) ========
-
-cart.map((product) => {
-    return (
-        <div className={style.product}>
-            <img src={product.image} alt="" className={style.image} />
-            <p>{product.name}</p>
-            <p>Precio: {product.price}</p>
-            <div className={style.quantity}>
-                <button onClick={() => restarCantidad(product.id)}>-</button>
-                <p>{product.quantity}</p>
-                <button onClick={() => aumentarCantidad(product.id)}>+</button>
-            </div>
-        </div>
-    )
-})
-
-
-
-TOTAL
-
-<p>Total: {cart.reduce((acumulador, producto) => {
-                    const subtotal = producto.price * producto.quantity;
-                    return acumulador + subtotal;
-                }, 0)}</p>
-*/
