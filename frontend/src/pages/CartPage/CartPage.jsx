@@ -5,6 +5,7 @@ import NavBar from "../../components/NavBar/NavBar"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { AiFillCloseCircle } from 'react-icons/ai';
+import { Link } from 'react-router-dom'
 // El carrito de compras
 const CartPage = () => {
 
@@ -63,85 +64,108 @@ const CartPage = () => {
     const eliminarProductoCarrito = (id) => {
         const indexToDelete = cart.findIndex(item => item.id === id)
 
-        if(indexToDelete !== -1)
-        {
-           const newCart = cart.splice(indexToDelete, 1)
-           console.log(newCart);
-           setCart(newCart)
+        if (indexToDelete !== -1) {
+            const updatedCart = [...cart.slice(0, indexToDelete), ...cart.slice(indexToDelete + 1)];
+            setCart(updatedCart);
+            localStorage.setItem('carrito', JSON.stringify(updatedCart));
         }
+    }
 
-        localStorage.setItem('carrito', JSON.stringify(cart));
+    const limpiarCarrito = () => {
+        localStorage.removeItem('carrito');
+        setCart([])
     }
 
     return (
         <div className="containerCart">
-            <table className="cart-table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Producto</th>
-                        <th>Precio</th>
-                        <th className="quantityTh">Cantidad</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        cart.map((product) => {
-                            return (
-                                <tr className="product">
-                                    <td className='containerImageProduct'>
-                                        <AiFillCloseCircle className="deleteProductCart" onClick={() => eliminarProductoCarrito(product.id)}/>
-                                        <img src={product.image} alt="" className='imageProduct' />
-                                    </td>
-                                    <td>{product.name}</td>
-                                    <td>${product.price}</td>
-                                    <td className="quantityTd">
-                                        <button onClick={() => restarCantidad(product.id)} className="buttonQuantity">-</button>
-                                        <p>{product.quantity}</p>
-                                        <button onClick={() => aumentarCantidad(product.id)} className="buttonQuantity">+</button>
-                                    </td>
-                                    <td>${product.price * product.quantity}</td>
-                                </tr>
+            {cart.length !== 0 ? (
+                <div className="containerCartWithProducts">
+                    <table className="cart-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th className="quantityTh">Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                cart.map((product) => {
+                                    return (
+                                        <tr className="product" key={product.id}>
+                                            <td className='containerImageProduct'>
+                                                <AiFillCloseCircle className="deleteProductCart" onClick={() => eliminarProductoCarrito(product.id)} />
+                                                <img src={product.image} alt="" className='imageProduct' />
+                                            </td>
+                                            <td>{product.name}</td>
+                                            <td>${product.price}</td>
+                                            <td className="quantityTd">
+                                                <button onClick={() => restarCantidad(product.id)} className="buttonQuantity">-</button>
+                                                <p>{product.quantity}</p>
+                                                <button onClick={() => aumentarCantidad(product.id)} className="buttonQuantity">+</button>
+                                            </td>
+                                            <td>${product.price * product.quantity}</td>
+                                        </tr>
 
-                            )
-                        })
-                    }
-                </tbody>
-            </table>
-            <div className="containerTotalCart">
-                <div className="totalCart">
-                    <div className="containerTitleTotalCart">
-                        <p>Total Carrito</p>
-                    </div>
-                    <div className="total">
-                        <p>Subtotal </p>
-                        <p>$
-                            {cart.reduce((acumulador, producto) => {
-                                const subtotal = producto.price * producto.quantity;
-                                return acumulador + subtotal;
-                            }, 0)}
-                        </p>
-                    </div>
-                    <DropdownButton  title="Opciones de Envío" className="dropDownCart " >
-                        <Dropdown.Item>Elija Cómo Recibir su Pedido</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setDeliver('Retirar en Local')}>Retirar en local</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setDeliver('Envio a Domicilio')}>Envio a domicilio</Dropdown.Item>
-                    </DropdownButton>
-                    <div className="total">
-                        <p>Total </p>
-                        <p>$
-                            {cart.reduce((acumulador, producto) => {
-                                const subtotal = producto.price * producto.quantity;
-                                return acumulador + subtotal;
-                            }, 0)}
-                        </p>
-                    </div>
-                    <div className="containerButtonBuy">
-                        <button onClick={crearOrden}>Comprar</button>
+                                    )
+                                })
+                            }
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td className="containerButtonClear"><button className="buttonClearCart" onClick={limpiarCarrito}>Limpiar Carrito</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div className="containerTotalCart">
+                        <div className="totalCart">
+                            <div className="containerTitleTotalCart">
+                                <p>Total Carrito</p>
+                            </div>
+                            <div className="total">
+                                <p>Subtotal </p>
+                                <p>$
+                                    {cart.reduce((acumulador, producto) => {
+                                        const subtotal = producto.price * producto.quantity;
+                                        return acumulador + subtotal;
+                                    }, 0)}
+                                </p>
+                            </div>
+                            <DropdownButton title="Opciones de Envío" className="dropDownCart " >
+                                <Dropdown.Item>Elija Cómo Recibir su Pedido</Dropdown.Item>
+                                <Dropdown.Item onClick={() => setDeliver('Retirar en Local')}>Retirar en local</Dropdown.Item>
+                                <Dropdown.Item onClick={() => setDeliver('Envio a Domicilio')}>Envio a domicilio</Dropdown.Item>
+                            </DropdownButton>
+                            <div className="total">
+                                <p>Total </p>
+                                <p>$
+                                    {cart.reduce((acumulador, producto) => {
+                                        const subtotal = producto.price * producto.quantity;
+                                        return acumulador + subtotal;
+                                    }, 0)}
+                                </p>
+                            </div>
+                            <div className="containerButtonBuy">
+                                <button onClick={crearOrden}>Comprar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            ) : (
+                <div className="containerEmptyCart">
+                    <div className="empty-cart">
+                        <p className='empty-cart-title'>Tu carrito está vacío</p>
+                        <p className="empty-cart-info">¡Agrega productos para comenzar tu compra!</p>
+                        <Link to='/products'><button>Ver Productos</button></Link>
+                    </div>
+                </div>
+            )}
+
+
         </div >
     )
 }
