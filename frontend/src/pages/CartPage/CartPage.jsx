@@ -4,11 +4,12 @@ import './CartPage.css'
 import NavBar from "../../components/NavBar/NavBar"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import { AiFillCloseCircle } from 'react-icons/ai';
 // El carrito de compras
 const CartPage = () => {
 
     const [cart, setCart] = useState([])
+    const [deliver, setDeliver] = useState('')
 
     useEffect(() => {
         const carritoLocalStorage = JSON.parse(localStorage.getItem('carrito'))
@@ -30,7 +31,7 @@ const CartPage = () => {
                 id: product.id
             }
         })
-        axios.post('http://localhost:3001/grafica/sales/create-order', { cart: data, userId: 1 })
+        axios.post('http://localhost:3001/grafica/sales/create-order', { cart: data, userId: 1, deliver: deliver })
             .then(response => {
                 console.log(response.data);
                 window.open(response.data, '_blank')
@@ -40,7 +41,7 @@ const CartPage = () => {
     const restarCantidad = (id) => {
         const updateCart = cart.map((product) => {
             if (product.id === id) {
-                if (product.quantity === 0) return product
+                if (product.quantity === 1) return product
                 return { ...product, quantity: product.quantity - 1 }
             }
             return product
@@ -57,6 +58,19 @@ const CartPage = () => {
             return product
         })
         setCart(updateCart)
+    }
+
+    const eliminarProductoCarrito = (id) => {
+        const indexToDelete = cart.findIndex(item => item.id === id)
+
+        if(indexToDelete !== -1)
+        {
+           const newCart = cart.splice(indexToDelete, 1)
+           console.log(newCart);
+           setCart(newCart)
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(cart));
     }
 
     return (
@@ -77,15 +91,15 @@ const CartPage = () => {
                             return (
                                 <tr className="product">
                                     <td className='containerImageProduct'>
-                                        <button>X</button>
+                                        <AiFillCloseCircle className="deleteProductCart" onClick={() => eliminarProductoCarrito(product.id)}/>
                                         <img src={product.image} alt="" className='imageProduct' />
                                     </td>
                                     <td>{product.name}</td>
                                     <td>${product.price}</td>
                                     <td className="quantityTd">
-                                        <button onClick={() => restarCantidad(product.id)}>-</button>
+                                        <button onClick={() => restarCantidad(product.id)} className="buttonQuantity">-</button>
                                         <p>{product.quantity}</p>
-                                        <button onClick={() => aumentarCantidad(product.id)}>+</button>
+                                        <button onClick={() => aumentarCantidad(product.id)} className="buttonQuantity">+</button>
                                     </td>
                                     <td>${product.price * product.quantity}</td>
                                 </tr>
@@ -110,9 +124,9 @@ const CartPage = () => {
                         </p>
                     </div>
                     <DropdownButton  title="Opciones de Envío" className="dropDownCart " >
-                        <Dropdown.Item href="#/action-1">Elija Cómo Recibir su Pedido</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Retirar en local</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Envio a domicilio</Dropdown.Item>
+                        <Dropdown.Item>Elija Cómo Recibir su Pedido</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setDeliver('Retirar en Local')}>Retirar en local</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setDeliver('Envio a Domicilio')}>Envio a domicilio</Dropdown.Item>
                     </DropdownButton>
                     <div className="total">
                         <p>Total </p>

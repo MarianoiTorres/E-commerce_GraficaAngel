@@ -8,6 +8,20 @@
     gap: 20px;
 }
 
+.deleteProductCart {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.buttonQuantity {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .cart-table {
     border: 1px solid #9CA69F;
     width: 80%;
@@ -15,16 +29,14 @@
 
 .cart-table  thead {
     border-bottom: 1px solid #9CA69F;
-    color: black;
+    color: #E4E2DD;
     background-color: #E37447;
 }
-
-
-
 
 .product {
     border-bottom: 1px solid #9CA69F;
     color: black;
+    font-weight: 500;
     height: 85px;
 }
 
@@ -73,7 +85,7 @@
 .totalCart {
     border: 1px solid #9CA69F;
     width: 40%;
-    min-height: 340px;
+    min-height: 300px;
     height: fit-content;
     color: black;
     display: flex;
@@ -89,10 +101,13 @@
 .containerTitleTotalCart {
     background-color: #E37447;
     border-bottom: 1px solid #9CA69F;
+    color: #E4E2DD;
+    font-weight: 700 !important;
     display: flex;
     justify-content: left;
     align-items: center;
     padding: 5px;
+    padding-left: 9px;
     margin-bottom: 5px;
     width: 100%;
 }
@@ -104,6 +119,7 @@
     width: 80%;
     justify-content: space-between;
     gap: 30px;
+    font-weight: 500;
 }
 
 .containerButtonBuy {
@@ -122,7 +138,22 @@
 }
 
 .dropDownCart button{
+    border: 1px solid black !important;
+    background-color: #E37447 !important;
+    width: 100% !important;
+    color: #E4E2DD;
+}
+
+
+.dropDownCart button:hover{
     border: 1px solid black;
     background-color: #E37447;
     width: 100% !important;
 }
+
+.dropDownCart button:focus{
+    border: 1px solid black;
+    background-color: #E37447;
+    width: 100% !important;
+}
+
