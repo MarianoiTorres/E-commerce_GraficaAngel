@@ -1,6 +1,8 @@
 import './NavBar.css'
 import {Component} from "react";
 import logo from './../../assets/logosinfondo.png'
+import carrito from './../../assets/carrito.png'
+
 class NavBar extends Component {
     state={clicked: false};
     handleClick=() => {
@@ -32,6 +34,10 @@ render(){
                     <li>
                         <a href="">Registrar</a>
                     </li>
+                    <li>
+                        <a href=""><img src={carrito} alt="icono de carrito" className='carrito'/></a>
+                    </li>
+                    
                 </ul>
             </div>
             <div id='mobile' onClick={this.handleClick}>

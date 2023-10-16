@@ -74,6 +74,14 @@ const Products = () => {
 
 
     return (
+        <>
+
+            <div id='mobile' onClick={this.handleClick}>
+                <i id='bar' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars' }></i>
+              
+            </div>
+                
+        
         <div className='products'>
             <div className="containerTitleProducts">
                 <h1>PRODUCTOS</h1>
@@ -158,6 +166,7 @@ const Products = () => {
                 </tbody>
             </Table>
         </div>
+        </>
     )
 }
 
