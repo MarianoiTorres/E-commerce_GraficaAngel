@@ -3,7 +3,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #060709;
 }
+
+.tableHead tr th{
+    background-color: #E37447  !important;
+    border: none;
+    color: #E4E2DD;
+  }
 
 .tdButtonContainer {
     text-align: center;

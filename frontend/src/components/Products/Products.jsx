@@ -84,7 +84,7 @@ const Products = () => {
 
 
             <Table responsive bordered hover >
-                <thead>
+                <thead className="tableHead">
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>

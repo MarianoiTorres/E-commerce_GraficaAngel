@@ -14,7 +14,8 @@
 
 
 .formCreateNewProduct {
-
+    color: #060709;
+    font-weight: 600;
     margin-top: 5%;
     gap: 20px;
     width: 70%;
@@ -35,8 +36,8 @@
     background: none;
     outline: none;
     height: 34px;
-    border-bottom: 0.12em solid #E4E2DD;
-    color: #E4E2DD;
+    border-bottom: 0.12em solid #060709;
+    color: #060709;
     border-radius: 0;
     width: 100%;
 }
@@ -53,8 +54,8 @@
 }
 
 .buttonSubmit {
-    background-color: #e2e2e2;
-    color: black;
+    background-color: #060709;
+    color: #E4E2DD;
     font-weight: 700;
     width: 30%;
 
@@ -87,4 +88,6 @@
     padding-top: 15px;
     text-align: center;
     font-size: 35px;
+    color: #E37447;
+    font-weight: 700;
 }

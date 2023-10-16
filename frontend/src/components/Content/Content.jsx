@@ -17,7 +17,7 @@ const Content = ({currentSelection}) => {
           case 'NewProduct':
             return <NewProduct />
           default:
-            return <div>Seleccione una sección</div>;
+            return <Sales />
         }
       };
 

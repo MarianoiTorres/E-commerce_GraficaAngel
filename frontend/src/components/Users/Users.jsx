@@ -22,7 +22,7 @@ const Users = () => {
 
 
             <Table responsive>
-                <thead>
+                <thead className="tableHead">
                     <tr>
                         <th>Id</th>
                         <th>Nombre</th>
