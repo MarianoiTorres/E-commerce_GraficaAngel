@@ -3,16 +3,7 @@ const mercadopago = require('mercadopago')
 const { MP_ACCESS_TOKEN } = process.env
 const nodemailer = require('nodemailer')
 
-const newOrder = async (cart, userId) => {
-    /*cart": [
-        {
-            title:"a",
-            unit_price: 5,
-            currency_id: "ARS",
-            quantity: 1,
-            id: 1 (productId)
-        }
-    ]*/
+const newOrder = async (cart, userId, deliver) => {
     mercadopago.configure({
         access_token: MP_ACCESS_TOKEN
     })
@@ -24,8 +15,11 @@ const newOrder = async (cart, userId) => {
             failure: 'http://localhost:3001/grafica/sales/failure',
             pending: 'http://localhost:3001/grafica/sales/pending'
         },
-        notification_url: 'https://0e14-181-1-52-69.ngrok.io/grafica/sales/webhook',
-        external_reference: String(userId)
+        notification_url: 'https://468f-181-1-52-69.ngrok.io/grafica/sales/webhook',
+        external_reference: String(userId),
+        metadata: {
+            deliver: deliver
+        }
     })
 
     //console.log(result.response.init_point);
@@ -33,10 +27,11 @@ const newOrder = async (cart, userId) => {
 }
 
 const receiveWebhook = async (payment) => {
-    console.log('holaaaa');
+
     if (payment.type === 'payment') {
         const data = await mercadopago.payment.findById(payment['data.id'])
         const userId = await data.response.external_reference   //userId
+        console.log(data.response.metadata);
         const user = await User.findByPk(userId)
         const items = await data.response.additional_info.items
         console.log(data.response.transaction_details.total_paid_amount);
@@ -59,7 +54,8 @@ const receiveWebhook = async (payment) => {
                     quantity: Number(cartItem.quantity),
                     status: data.response.status,
                     total: total,
-                    payment_method: data.response.payment_method.id
+                    payment_method: data.response.payment_method.id,
+                    deliver: data.response.metadata.deliver
                 })
 
                 if (newSale)  // ===> Descuento de stock
@@ -163,7 +159,8 @@ const receiveWebhook = async (payment) => {
                             </tbody>
                         </table>
                       <p><strong>Total de la Compra:</strong> ${data.response.transaction_details.total_paid_amount}</p>
-                      <p><strong>Método de Pago:</strong> ${data.response.payment_method.id}</p
+                      <p><strong>Método de Pago:</strong> ${data.response.payment_method.id}</p>
+                      <p><strong>Tipo de entrega:</strong> ${data.response.metadata.deliver}</p>
                     </body>
                 </html>
                 `

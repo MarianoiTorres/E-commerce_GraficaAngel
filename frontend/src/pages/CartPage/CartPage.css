@@ -1,0 +1,159 @@
+.containerCart {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    gap: 20px;
+}
+
+.deleteProductCart {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.buttonQuantity {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-table {
+    border: 1px solid #9CA69F;
+    width: 80%;
+}
+
+.cart-table  thead {
+    border-bottom: 1px solid #9CA69F;
+    color: #E4E2DD;
+    background-color: #E37447;
+}
+
+.product {
+    border-bottom: 1px solid #9CA69F;
+    color: black;
+    font-weight: 500;
+    height: 85px;
+}
+
+.containerImageProduct {
+    width: 15%;
+    
+}
+
+.imageProduct {
+    margin-left: 15px;
+    height: 70px;
+}
+
+.quantityTh {
+    width: 15%;
+}
+
+.quantityTd {
+
+    display: flex;
+    height:85px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantityTd p {
+    margin: 0;
+}
+
+.containerButtonClear {
+    width: 20%;
+}
+
+.buttonClearCart {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.containerTotalCart {
+    display: flex;
+    justify-content: right;
+    width: 80%;
+}
+
+.totalCart {
+    border: 1px solid #9CA69F;
+    width: 40%;
+    min-height: 300px;
+    height: fit-content;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+}
+
+.totalCart p {
+    margin: 0;
+}
+
+.containerTitleTotalCart {
+    background-color: #E37447;
+    border-bottom: 1px solid #9CA69F;
+    color: #E4E2DD;
+    font-weight: 700 !important;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px;
+    padding-left: 9px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.total {
+    border-bottom: 1px solid #9CA69F;
+    display: flex;
+    padding: 5px;
+    width: 80%;
+    justify-content: space-between;
+    gap: 30px;
+    font-weight: 500;
+}
+
+.containerButtonBuy {
+    padding-top:20px;
+    width: 100%;
+    
+}
+
+.containerButtonBuy button {
+    width: 90%;
+}
+
+.dropDownCart  {
+    width: 80% !important;
+    box-sizing: border-box;
+}
+
+.dropDownCart button{
+    border: 1px solid black !important;
+    background-color: #E37447 !important;
+    width: 100% !important;
+    color: #E4E2DD;
+}
+
+
+.dropDownCart button:hover{
+    border: 1px solid black;
+    background-color: #E37447;
+    width: 100% !important;
+}
+
+.dropDownCart button:focus{
+    border: 1px solid black;
+    background-color: #E37447;
+    width: 100% !important;
+}
+

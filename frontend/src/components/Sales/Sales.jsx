@@ -27,6 +27,7 @@ const Sales = () => {
                         <th>Id</th>
                         <th>Producto</th>
                         <th>Metodo de pago</th>
+                        <th>Metodo de entrega</th>
                         <th>Fecha</th>
                         <th>Precio Unitario</th>
                         <th>Cantidad</th>
@@ -40,6 +41,7 @@ const Sales = () => {
                             <td>{index + 1}</td>
                             <td>{user.Product.name}</td>
                             <td>{user.payment_method}</td>
+                            <td>{user.deliver}</td>
                             <td>{user.createdAt.split("T")[0]}</td>
                             <td>{user.Product.price}</td>
                             <td>{user.quantity}</td>
