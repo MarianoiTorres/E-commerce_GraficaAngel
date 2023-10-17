@@ -1,6 +1,9 @@
 import './NavBar.css'
 import {Component} from "react";
 import logo from './../../assets/logosinfondo.png'
+import carrito from './../../assets/carrito.png'
+import {NavLink} from "react-router-dom" 
+
 class NavBar extends Component {
     state={clicked: false};
     handleClick=() => {
@@ -15,23 +18,27 @@ render(){
             <div>
                 <ul id='navbar' className={this.state.clicked ? "#navbar active" : "#navbar"}>
                     <li>
-                        <a href="" className='active'>Inicio</a>
+                        <NavLink href="/" to="/">Inicio</NavLink>
                     </li>
                     <li>
-                        <a href="">Tienda</a>
+                        <NavLink to="/products" >Tienda</NavLink>
                     </li>
                     <li>
-                        <a href="">Sobre Nosotros</a>
+                        <NavLink to="/about">Sobre Nosotros</NavLink>
                     </li>
                     <li>
-                        <a href="">Contacto</a>
+                        <NavLink to="/contact" activeClassName="active" >Contacto</NavLink>
                     </li>
                     <li>
-                        <a href="">Iniciar Sesión</a>
+                        <NavLink to="/login">Iniciar Sesión</NavLink>
                     </li>
                     <li>
-                        <a href="">Registrar</a>
+                        <NavLink to="/register">Registrar</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/cart"><img src={carrito} alt="icono de carrito" className='carrito'/></NavLink>
+                    </li>
+                    
                 </ul>
             </div>
             <div id='mobile' onClick={this.handleClick}>
@@ -40,6 +47,7 @@ render(){
             </div>
                 
             </nav>
+            <hr />
         </>
     )
 }

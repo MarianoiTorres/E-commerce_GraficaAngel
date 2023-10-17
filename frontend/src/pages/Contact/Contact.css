@@ -9,13 +9,13 @@ gap: 30px;
 }
 
 input{
-    width: 500px;
+    width: 800px;
     height: 30px;
     padding: 10px;
     border-radius: 20px;
     border: none;
     background-color: #E37447;
-    border: solid 2px #060709;
+    border: solid 1px #E4E2DD;
 }
 
 input::placeholder{
@@ -27,12 +27,13 @@ textarea::placeholder{
 
 
 textarea{
-    width: 500px;
+    width: 800px;
+    height: 150px;
     padding: 10px;
     border-radius: 20px;
     border: none;
     background-color: #E37447;
-    border: solid 2px #060709;
+    border: solid 1px #E4E2DD;
 }
 .agradecimientocontactocontenedor{
     display: flex;
@@ -40,27 +41,30 @@ textarea{
     justify-content: center;
 }
 .trabajamosjuntos{
-    color: #060709;
+    color: #E4E2DD;
+    width: 300px;
 
 }
 .contact{
-    width: 40%;
-    height: 800px;
-    background-color: #E4E2DD;
+    width: 60%;
+    height: 730px;
+    background-color: none;
 text-align: center;
 border-radius: 30px;
 padding: 20px;
 box-shadow: 4px 4px 17px rgba(0, 0, 0, 0.5);
+overflow: hidden;
+border: solid 1px #E4E2DD;
 
 }
 
 .agradecimientocontacto{
     text-align: center;
-    width: 500px;
+    width: 800px;
     padding-bottom: 30px;
     text-align: justify;
     font-weight: 500;
-    color: #060709;
+    color: #E4E2DD;
     font-size: 15px;
 
 }

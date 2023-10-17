@@ -1,13 +1,14 @@
 import style from "./Contact.css";
 import NavBar from "./../../components/NavBar/NavBar";
 import Footer from "./../../components/Footer/Footer";
+import trabajemos from "./../../assets/trabajemos.png"
 const Contact = () => {
   return (
     <div>
-      <NavBar></NavBar>
+
       <div className="contactcontainer">
         <div className="contact">
-          <h2 className="trabajamosjuntos">¿Trabajamos juntos?</h2>
+          <img className="trabajamosjuntos" src={trabajemos}></img>
           <div className="agradecimientocontactocontenedor">
             <p className="agradecimientocontacto">
               Estamos encantados de saber que tienes una consulta para nosotros.
@@ -33,7 +34,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+
     </div>
   );
 };

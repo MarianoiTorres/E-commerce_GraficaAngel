@@ -12,9 +12,13 @@
     justify-content: center;
 }
 
+.imagenejemplo{
+    max-width: 400px;
+}
 
 .formCreateNewProduct {
-    color: #060709;
+    
+    color:#E4E2DD;
     font-weight: 600;
     margin-top: 5%;
     gap: 20px;
@@ -22,6 +26,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.nombredeproducto{
+    margin-top: 30px;
+    font-weight: 900;
+    font-size: 30px;
 }
 
 .labelsAndInputs {
@@ -34,10 +44,11 @@
 .labelsAndInputs input {
     border: none;
     background: none;
+    
     outline: none;
     height: 34px;
     border-bottom: 0.12em solid #060709;
-    color: #060709;
+    color: #E4E2DD;
     border-radius: 0;
     width: 100%;
 }
@@ -49,26 +60,29 @@
 
 .labelBootstrap {
     background-color:#e2e2e2 !important;
-    color: black !important;
+    color: #E4E2DD !important;
     border: none !important;
 }
 
 .buttonSubmit {
-    background-color: #060709;
+
     color: #E4E2DD;
     font-weight: 700;
     width: 30%;
+    background-color: #E37447;
 
 }
 
 .buttonSubmit:hover {
-    background-color: #E37447;
-    color: white;
+    background-color: #E4E2DD;
+    color: #E37447;
     transition: 0.2s ease;
 }
 
 .containerPreviewCard {
+
     width: 40%;
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,6 +99,7 @@
 }
 
 .titleFormProduct {
+
     padding-top: 15px;
     text-align: center;
     font-size: 35px;

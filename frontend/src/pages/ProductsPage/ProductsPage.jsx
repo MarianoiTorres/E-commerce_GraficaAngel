@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import style from './ProductsPage.module.css'
+import style from './ProductsPage.css'
 
 // Pagina que va a tener todos los productos
 const ProductsPage = () => {
@@ -8,8 +8,11 @@ const ProductsPage = () => {
     const productsState = useSelector((state) => state.products)
 
     return (
-        <div className={style.container}>
-            <div className={style.containerCards}>
+        <>
+
+
+        <div className="containerrCards">
+            <div className="containerCards">
                 {
                     productsState.map((product) => {
                         return (
@@ -27,6 +30,8 @@ const ProductsPage = () => {
                 }
             </div>
         </div>
+
+        </>
     )
 }
 

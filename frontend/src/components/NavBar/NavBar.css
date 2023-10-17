@@ -2,7 +2,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-image: url(../../assets/bg1.jpg);
+    background: none;
     padding: 0px 80px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
   }
@@ -12,6 +12,15 @@ nav {
     justify-content: center;
   }
   
+  .carrito{
+    width: 20px;
+  }
+
+  .carrito:hover{
+    transform: scale(1.2);
+    transition: 0.3s ease-in-out;
+  }
+
   img.logo{
     height: 150px;
     padding: 0;

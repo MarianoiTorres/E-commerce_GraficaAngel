@@ -1,9 +1,9 @@
 .section__padding{
     padding: 0.5rem 13rem;
    
-    background-image: url(../../assets/bg1.jpg);
+    background: none;
 
-    
+    border: solid 4px 0 0 0 #E4E2DD;
 }
 
 
@@ -11,6 +11,7 @@
 .angel__footer{
     display: flex;
     flex: column;
+
 
 
 }
