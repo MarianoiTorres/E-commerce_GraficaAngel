@@ -24,6 +24,12 @@
     font-weight: 600;
 }
 
+.goLoginPage {
+    text-decoration: none;
+    color: #E4E2DD;
+    font-weight: 700;
+}
+
 .messageRegister {
     position: relative;
     width: 40%;

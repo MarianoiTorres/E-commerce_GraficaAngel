@@ -51,7 +51,7 @@ const RegisterPage = () => {
                 <Link to='/' className='backPrincipalPage'>Inicio</Link>
                 <div className='loginLinkContainer'>
                     <p>¿Ya tienes una cuenta?</p>
-                    <Link to='/login'>Iniciar Sesion</Link>
+                    <Link to='/login' className='goLoginPage'>Iniciar Sesion</Link>
                 </div>
                 <div className='containerTitleForm'>
                     <p>Registro</p>

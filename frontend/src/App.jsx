@@ -29,7 +29,11 @@ function App() {
 
   return (
     <div className='app'>
-      <NavBar></NavBar>
+      {location.pathname !== '/register' && 
+      location.pathname !== '/dashboard' && 
+      location.pathname !== '/login' && 
+      <NavBar />
+      }
       <div className='content'>
         <Routes>
           <Route path='/' element={<HomePage />} />
@@ -42,11 +46,14 @@ function App() {
           <Route path='/products' element={<ProductsPage />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
-        
+
       </div>
-      <Footer></Footer>
-     
-      
+      {location.pathname !== '/register' &&
+      location.pathname !== '/dashboard' &&  
+      location.pathname !== '/login' && 
+      <Footer />}
+
+
     </div>
   )
 }
