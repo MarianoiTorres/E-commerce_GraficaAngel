@@ -1,22 +1,24 @@
 
 .tableImage {
     width: 50px;
+
 }
 
 .inputEditProduct {
     width: 70%;
     background: none;
     border: none;
-    border-bottom: 1px solid #060709;
+    
     outline: none;
-    color: black;
+
     border-radius: 0;
 }
 
 .tableHead tr th{
-  background-color: #E37447  !important;
-  border: none;
+  background: none;
+  border: 1px solid #E4E2DD;
   color: #E4E2DD;
+
 }
 
 .containerTitleProducts {
@@ -25,7 +27,9 @@
     justify-content: center;
     align-items: center;
     color: #060709;
+    margin-top: 100px;
 }
+
 
 .containerTitleProducts h1 {
   border: none;

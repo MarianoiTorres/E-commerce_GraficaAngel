@@ -6,6 +6,7 @@ import instagram from '../../assets/instagram.png'
 const Footer = () => {
     return (
         <div className='footer'>
+            <hr />
             <div className='angel__footer section__padding'>
                 <div className='angel__footer-links'>
                     <div className='angel__footer-links_div'>
