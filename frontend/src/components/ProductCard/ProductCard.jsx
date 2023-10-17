@@ -1,4 +1,4 @@
-import style from './ProductCard.module.css'
+import style from './ProductCard.css'
 
 // TARJETA DE CADA PRODUCTO 
 const ProductCard = ({ id, name, detail, image, price, stock }) => {
@@ -22,12 +22,12 @@ const ProductCard = ({ id, name, detail, image, price, stock }) => {
     }
 
     return (
-        <div className={style.container}>
-            <button onClick={agregarAlCarrito}>Add Cart</button>
-            <p className={style.nombre}>{name}</p>
-            <p className={style.detalles}>{detail}</p>
-            <img src={image} alt="" className={style.imagen} />
-            <p className={style.precio}>{price}</p>
+        <div className="containercard">
+            <button onClick={agregarAlCarrito} className='agregaralcarrito'>Agregar al carrito</button>
+            <p className="nombrecard">{name}</p>
+            <p className="detallescard">{detail}</p>
+            <img src={image} alt="" className="imagencard" />
+            <p className="preciocard">${price}</p>
         </div>
     )
 }

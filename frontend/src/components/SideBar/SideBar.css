@@ -1,8 +1,9 @@
 
 .containerSideBar {
-    background-color: #0c0e13;
+    background-color: none;
     width: 19%;
     height: 100vh;
+    padding: 30px;
 }
 
 .containerLogo {

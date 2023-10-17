@@ -5,7 +5,7 @@ import trabajemos from "./../../assets/trabajemos.png"
 const Contact = () => {
   return (
     <div>
-      <NavBar></NavBar>
+
       <div className="contactcontainer">
         <div className="contact">
           <img className="trabajamosjuntos" src={trabajemos}></img>
@@ -34,7 +34,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+
     </div>
   );
 };

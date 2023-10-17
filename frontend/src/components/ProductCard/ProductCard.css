@@ -1,0 +1,53 @@
+
+.containercard {
+    border: 1px solid #E4E2DD;
+    max-width: 250px;
+    max-height: 320px;
+    padding: 20px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+.containercard:hover{
+    border: 1px solid #DF5725;
+}
+
+
+.containercard:hover .agregaralcarrito{
+    background-color:  #DF5725;
+}
+
+.agregaralcarrito:hover{
+    transform: scale(1.1);
+
+}
+
+.imagencard {
+    width: 60%;
+    
+}
+
+.nombrecard{
+    color: #E4E2DD;
+    margin-top: 5px;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.detallescard{
+    color: #E4E2DD;
+    margin-top: -20px;
+}
+
+.preciocard{
+    font-weight:900
+}
+
+.agregaralcarrito{
+    background-color: #E4E2DD;
+
+}
+.agregaralcarrito:hover{
+    background-color: #DF5725;
+    color: #E4E2DD;
+}

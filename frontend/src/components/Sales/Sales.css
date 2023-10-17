@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
 }
 
 .containerTitleUser h1 {
@@ -12,7 +13,16 @@
   }
 
   .tableHead tr th{
-    background-color: #E37447  !important;
-    border: none;
+    background: none;
+    border: 1px solid #E4E2DD;
     color: #E4E2DD;
+    padding: 20px;
+
+
+  }
+
+  .ventastitulo{
+    width: 350px;
+    margin-bottom: 100px;
+
   }

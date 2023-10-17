@@ -107,8 +107,8 @@ const NewProduct = () => {
             </div>
             <div className="containerPreviewCard">
                 <div className="previewCard">
-                    <p>{product.name ? product.name : 'Producto'}</p>
-                    {previewSource ? <img src={previewSource} alt="" /> : <img src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg" />}
+                    <p className="nombredeproducto">{product.name ? product.name : 'Producto'}</p>
+                    {previewSource ? <img src={previewSource} alt="" className="imagenejemplo"/ > : <img src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg" />}
                     <p>{product.detail ? product.detail : 'Texto de ejemplo:'}</p>
                     <p>${product.price}</p>
                 </div>

@@ -4,6 +4,7 @@ import { getAllSales, getAllUsers } from "../../Redux/Actions/Actions";
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Sales.css'
+import ventas from "./../../assets/ventas.png"
 const Sales = () => {
     const users = useSelector(state => state.sales)
 
@@ -17,7 +18,7 @@ const Sales = () => {
     return (
         <div className='users'>
             <div className="containerTitleUser">
-                <h1>VENTAS</h1>
+                <img src={ventas} alt="" className="ventastitulo"/>
             </div>
 
 

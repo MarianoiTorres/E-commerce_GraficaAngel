@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Products.css'
 import { useEffect, useState } from "react";
 import { deleteProduct, getAllProducts, updateProduct } from "../../Redux/Actions/Actions";
-
+import productos from "./../../assets/productos.png"
 
 const Products = () => {
 
@@ -76,15 +76,12 @@ const Products = () => {
     return (
         <>
 
-            <div id='mobile' onClick={this.handleClick}>
-                <i id='bar' className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars' }></i>
-              
-            </div>
+
                 
         
         <div className='products'>
             <div className="containerTitleProducts">
-                <h1>PRODUCTOS</h1>
+                <h1><img className="ventastitulo" src={productos} alt="" /></h1>
             </div>
             <div className="containerButtons">
                 <input type="text" onChange={searchProductByName} placeholder="Buscar producto" className="searchProduct" />
