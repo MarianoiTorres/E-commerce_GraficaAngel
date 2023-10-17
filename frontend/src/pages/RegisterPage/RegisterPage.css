@@ -1,0 +1,144 @@
+
+.containerRegister {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+.loginLinkContainer {
+    color: #E37447;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    display: flex;
+    gap: 5px;
+    font-weight: 600;
+}
+
+.backPrincipalPage {
+    position: absolute;
+    color: #E37447;
+    top: 10px;
+    left: 20px;
+    font-weight: 600;
+}
+
+.goLoginPage {
+    text-decoration: none;
+    color: #E4E2DD;
+    font-weight: 700;
+}
+
+.messageRegister {
+    position: relative;
+    width: 40%;
+    background-color: #E37447;
+    background-image: url(https://img.freepik.com/foto-gratis/fondo-pantalla-optimismo-cara-sonriente_23-2150039327.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 1px 0 5px 1px rgb(70, 70, 70);
+}
+
+.messageRegister::after {
+    content: "";
+    position: absolute; /* Lo posicionamos de manera absoluta dentro del contenedor */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Fondo semi-transparente */
+}
+
+.messageRegister h1 {
+    border: none;
+    font-size: 34px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    color: #E37447;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 5px rgb(0, 0, 0);
+}
+
+.messageRegister p {
+    margin: 0;
+    font-size: 15px;
+    position: relative;
+    z-index: 1;
+    color: #E37447;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgb(0, 0, 0);
+}
+
+.containerForm {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.formRegister {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.formRegister input {
+    height: 40px;
+    width: 100%;
+    background-color: #E4E2DD;
+    color: #060709;
+    outline: none;
+}
+
+.formRegister input:focus {
+    border: 2px solid #DF5725;
+}
+
+.formRegister input:focus::placeholder {
+    color: #DF5725;
+}
+
+.formRegister input::placeholder {
+    color: #060709;
+    font-weight: 500;
+}
+
+.containerTitleForm {
+
+    width: 45%;
+}
+
+.containerTitleForm p {
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgb(29, 29, 29);
+    margin: 0;
+    text-align: left;
+    color: #E37447;
+    letter-spacing: 2px;
+}
+
+.buttonRegister {
+    width: 100%;
+    border-radius: 50px;
+    background-color: #E37447;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.buttonRegister:hover {
+    background-color: #DF5725;
+}
