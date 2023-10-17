@@ -12,7 +12,9 @@ const RegisterPage = () => {
         firstname: '',
         lastname: '',
         email: '',
-        password: ''
+        password: '',
+        age: '',
+        phone: ''
     })
 
     const onChangeHandler = (event) => {
@@ -22,25 +24,28 @@ const RegisterPage = () => {
         })
     }
 
-    const createNewUser = (event) => {
+    const createNewUser = async(event) => {
         event.preventDefault()
 
-        axios.post('http://localhost:3001/grafica/users/register', user)
+        const response = await axios.post('http://localhost:3001/grafica/users/register', user)
 
         setUser({
             firstname: '',
             lastname: '',
             email: '',
-            password: ''
+            password: '',
+            age: '',
+            phone: ''
         })
-
+        console.log(response.data);
         navigate('/login')
     }
 
     return (
         <div className='containerRegister'>
             <div className='messageRegister'>
-                Bienvenido
+                <h1>¡Bienvenido a Grafica Angel!</h1>
+                <p>Regístrate y Personaliza tus Propios Productos Sublimables</p>
             </div>
             <div className='containerForm'>
                 <div className='containerTitleForm'>
