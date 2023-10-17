@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './RegisterPage.css'
 import axios from 'axios'
 import { useState } from 'react';
@@ -24,7 +24,7 @@ const RegisterPage = () => {
         })
     }
 
-    const createNewUser = async(event) => {
+    const createNewUser = async (event) => {
         event.preventDefault()
 
         const response = await axios.post('http://localhost:3001/grafica/users/register', user)
@@ -48,6 +48,11 @@ const RegisterPage = () => {
                 <p>Regístrate y Personaliza tus Propios Productos Sublimables</p>
             </div>
             <div className='containerForm'>
+                <Link to='/' className='backPrincipalPage'>Inicio</Link>
+                <div className='loginLinkContainer'>
+                    <p>¿Ya tienes una cuenta?</p>
+                    <Link to='/login'>Iniciar Sesion</Link>
+                </div>
                 <div className='containerTitleForm'>
                     <p>Registro</p>
                 </div>
