@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import style from './CartPage.module.css'
+
 // El carrito de compras
+
 const CartPage = () => {
 
     const [cart, setCart] = useState([])

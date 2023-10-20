@@ -1,0 +1,44 @@
+
+.boxCarrusel{
+  margin: 1rem auto;
+  width: 90%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+}
+.carruselUno{
+  display: flex;
+  padding: 2rem;
+  width: 700px;
+  
+  opacity: 0; 
+}
+.carruselDos{
+  display: flex;
+  padding: 2rem;
+  width: 700px;
+  
+  transition: 1s; 
+  opacity: 1;
+}
+.botones{
+  height: 50px;
+  font-weight: bolder; 
+}
+
+
+h2{
+  display: block;
+  border: 2px solid rgb(214, 147, 21);
+  background-color: rgb(248, 201, 112);
+  box-shadow: 0px 2px 5px black;
+}
+
+.box{
+  min-height: 80px;
+  background-color: rgb(252, 232, 195);
+}
+
+
+
