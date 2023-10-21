@@ -33,6 +33,17 @@ body {
 
 }
 
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #E37447;
+  border: solid 1px #E4E2DD;
+}
+
+input::placeholder{
+  color: #E4E2DD;
+}
 
 h1 {
   font-size: 3.2em;

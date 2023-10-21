@@ -1,9 +1,13 @@
-import { DELETE_PRODUCT, DELETE_USER, GET_ALL_PRODUCTS, GET_ALL_SALES, GET_ALL_USERS, UPDATE_PRODUCT } from "../Actions/Actions"
+import { CLOSE_SESION_USER_AUTH, DELETE_PRODUCT, DELETE_USER, GET_ALL_PRODUCTS, GET_ALL_SALES, GET_ALL_USERS, UPDATE_PRODUCT, USER_AUTH } from "../Actions/Actions"
 
 const initialState = {
     products: [],
     users: [],
-    sales: []
+    sales: [],
+    userAuth: {
+        authenticated: false,
+        isAdmin: false
+    }
 }
 
 const reducer = (state = initialState, action) => {
@@ -28,7 +32,7 @@ const reducer = (state = initialState, action) => {
         }
         case UPDATE_PRODUCT: {
 
-            const updatedProduct = action.payload; 
+            const updatedProduct = action.payload;
             const updatedProducts = state.products.map((product) => {
                 if (product.id === updatedProduct.id) {
                     return updatedProduct;
@@ -52,6 +56,21 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: state.users.filter(user => user.id !== action.payload)
+            }
+        }
+        case USER_AUTH: {
+            return {
+                ...state,
+                userAuth: action.payload
+            }
+        }
+        case CLOSE_SESION_USER_AUTH: {
+            return {
+                ...state,
+                userAuth: {
+                    authenticated: false,
+                    isAdmin: false
+                }
             }
         }
         default: {

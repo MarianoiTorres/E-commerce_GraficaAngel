@@ -26,6 +26,10 @@ module.exports = (sequelize) => {
             },
             phone: {
                 type: DataTypes.STRING, 
+            },
+            isAdmin: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
             }
         }
     )

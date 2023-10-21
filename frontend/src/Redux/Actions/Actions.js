@@ -5,6 +5,8 @@ export const GET_ALL_SALES = 'GET_ALL_SALES'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const DELETE_PRODUCT = 'DELETE_PRODUCT'
 export const DELETE_USER = 'DELETE_USER'
+export const USER_AUTH = 'USER_AUTH'
+export const CLOSE_SESION_USER_AUTH = 'CLOSE_SESION_USER_AUTH'
 
 export const getAllProducts = () => {
     return async (dispatch) => {
@@ -64,6 +66,24 @@ export const deleteUser = (id) => {
         return dispatch({
             type: DELETE_USER,
             payload: id
+        })
+    }
+}
+
+export const userAuth = (user) => {
+    return async(dispatch) => {
+        const response = await axios.post(`http://localhost:3001/grafica/users/login`, user)
+        return dispatch({
+            type: USER_AUTH,
+            payload: response.data
+        })
+    }
+}
+
+export const closeSesion = () => {
+    return async(dispatch) => {
+        return dispatch({
+            type: CLOSE_SESION_USER_AUTH
         })
     }
 }

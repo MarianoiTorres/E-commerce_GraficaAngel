@@ -6,11 +6,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link } from 'react-router-dom'
+import { useSelector } from "react-redux";
 // El carrito de compras
 const CartPage = () => {
 
     const [cart, setCart] = useState([])
     const [deliver, setDeliver] = useState('')
+    const userAuth = useSelector(state => state.userAuth)
 
     useEffect(() => {
         const carritoLocalStorage = JSON.parse(localStorage.getItem('carrito'))
@@ -156,13 +158,22 @@ const CartPage = () => {
                     </div>
                 </div>
             ) : (
-                <div className="containerEmptyCart">
-                    <div className="empty-cart">
-                        <p className='empty-cart-title'>Tu carrito está vacío</p>
-                        <p className="empty-cart-info">¡Agrega productos para comenzar tu compra!</p>
-                        <Link to='/products'><button>Ver Productos</button></Link>
+                userAuth.authenticated ?
+                    <div className="containerEmptyCart">
+                        <div className="empty-cart">
+                            <p className='empty-cart-title'>Tu carrito está vacío</p>
+                            <p className="empty-cart-info">¡Agrega productos para comenzar tu compra!</p>
+                            <Link to='/products'><button>Ver Productos</button></Link>
+                        </div>
                     </div>
-                </div>
+                    :
+                    <div className="containerEmptyCart">
+                        <div className="empty-cart">
+                            <p className='empty-cart-title'>Debes iniciar sesión</p>
+                            <p className="empty-cart-info">Para realizar compras, debes iniciar sesión o registrarte.</p>
+                            <Link to='/login'><button>Iniciar sesion</button></Link>
+                        </div>
+                    </div>
             )}
 
 
