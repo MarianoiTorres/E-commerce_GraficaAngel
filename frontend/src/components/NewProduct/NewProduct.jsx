@@ -2,6 +2,7 @@ import { useState } from "react"
 import './NewProduct.css'
 import axios from 'axios'
 import Form from 'react-bootstrap/Form';
+
 const NewProduct = () => {
 
     const [product, setProduct] = useState({
@@ -100,19 +101,26 @@ const NewProduct = () => {
                     </div>
                     <Form.Group controlId="formFile" className='labelsAndInputs'>
                         <Form.Label>Imagen</Form.Label>
-                        <Form.Control type="file" onChange={handleFileInputChange} value={fileInputState} className="labelBootstrap"/>
+                        <Form.Control type="file" onChange={handleFileInputChange} value={fileInputState} className="labelBootstrap" />
                     </Form.Group>
                     <button type="submit" className="buttonSubmit">Guardar</button>
                 </form>
             </div>
-            <div className="containerPreviewCard">
-                <div className="previewCard">
-                    <p className="nombredeproducto">{product.name ? product.name : 'Producto'}</p>
-                    {previewSource ? <img src={previewSource} alt="" className="imagenejemplo"/ > : <img src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg" />}
-                    <p>{product.detail ? product.detail : 'Texto de ejemplo:'}</p>
-                    <p>${product.price}</p>
+            <div className="containerCardPreview">
+                <div className="containercard">
+                    <div className="card-content">
+                        {previewSource ? <img src={previewSource} alt="" className="imagencard" /> : <img src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg" className="imagencard" />}
+                        <div className="info-container">
+                            <div className="info">{product.detail ? product.detail : 'Texto de ejemplo:'}</div>
+                        </div>
+                    </div>
+                    <p className="nombrecard">{product.name ? product.name : 'Producto'}</p>
+                    <p className="preciocard">${product.price}</p>
+                    <button className='agregaralcarrito'>Agregar al carrito</button>
                 </div>
             </div>
+
+
         </div>
     )
 }

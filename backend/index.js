@@ -1,4 +1,5 @@
 const express = require('express')
+const {PORT} = process.env || 3001
 const cors = require('cors')
 const morgan = require('morgan')
 const router = require('./src/routes/index')
@@ -26,7 +27,7 @@ sequelize.sync({ alter: true }).then(async() => {
             });
         }
 
-    app.listen(3001, () => { 
+    app.listen(PORT, "0.0.0.0", () => { 
         console.log('server on port 3001');
     })
 })     
