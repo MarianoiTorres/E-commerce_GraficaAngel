@@ -32,6 +32,7 @@ function App() {
       {location.pathname !== '/register' && 
       location.pathname !== '/dashboard' && 
       location.pathname !== '/login' && 
+    
       <NavBar />
       }
       <div className='content'>
