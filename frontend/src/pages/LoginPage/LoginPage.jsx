@@ -3,9 +3,13 @@ import './LoginPage.css'
 import { useState } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { userAuth } from '../../Redux/Actions/Actions';
 
 // Pagina para iniciar sesion
 const LoginPage = () => {
+
+    const dispatch = useDispatch()
 
     const navigate = useNavigate();
 
@@ -23,16 +27,15 @@ const LoginPage = () => {
 
     const login = (event) => {
         event.preventDefault()
-
-        axios.post('http://localhost:3001/grafica/users/login', user)
-            .then(response => {
-                console.log(response.data);
-            })
+        if(user.email.length === 0 && password.email.length === 0) return
+        dispatch(userAuth(user))
 
         setUser({
             email: '',
             password: ''
         })
+
+        navigate('/')
     }
 
     return (

@@ -1,15 +1,35 @@
 
 .containercard {
-    border: 1px solid #E4E2DD;
-    max-width: 250px;
-    max-height: 320px;
+    background-color: #E4E2DD;
+    min-width: 240px;
+    max-width: 240px;
+    min-height: 380px;
+    height: 380px;
+    max-height: 380px;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
 }
 
+.card-content {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    position: relative;
+    transition: transform 0.5s;
+}
+.containercard:hover .card-content {
+    transform: rotateY(180deg);
+}
 .containercard:hover{
-    border: 1px solid #DF5725;
+    box-shadow: 3px 3px 1px #DF5725;
+    transform: scale(1.02);
+    cursor: pointer;
+    transition: 0.2s ease-out;
 }
 
 
@@ -17,37 +37,57 @@
     background-color:  #DF5725;
 }
 
-.agregaralcarrito:hover{
-    transform: scale(1.1);
-
+.info-container {
+    width: 100%;
+    height: 100%;
+    
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E4E2DD;
+    border-radius: 20px;
 }
 
-.imagencard {
-    width: 60%;
+.info {
     
+    max-width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: #060709;
+    box-sizing: border-box;
+}
+
+
+.imagencard {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    backface-visibility: hidden;
 }
 
 .nombrecard{
-    color: #E4E2DD;
-    margin-top: 5px;
-    font-weight: 900;
-    font-size: 30px;
-}
-
-.detallescard{
-    color: #E4E2DD;
-    margin-top: -20px;
+    color: #060709;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
 }
 
 .preciocard{
-    font-weight:900
+    font-weight:900;
+    margin: 0;
+    font-size: 20px;
+    color: #060709;
 }
+
 
 .agregaralcarrito{
-    background-color: #E4E2DD;
-
-}
-.agregaralcarrito:hover{
+    margin-top: 5px;
     background-color: #DF5725;
     color: #E4E2DD;
+    width: 100%;
+    border-radius: 20px;
 }

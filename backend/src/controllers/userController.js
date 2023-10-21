@@ -2,9 +2,9 @@ const { User } = require('../../db')
 const { encrypt, verify } = require('../utils/passwordEncrypt')
 
 const createUser = async (user) => {
-    const userFound = await User.findOne({where: {email: user.email}})
-    
-    if(userFound) return {message: 'Email en uso'}
+    const userFound = await User.findOne({ where: { email: user.email } })
+
+    if (userFound) return { message: 'Email en uso' }
     const passwordHash = await encrypt(user.password)
 
     const newUser = await User.create({
@@ -18,14 +18,19 @@ const createUser = async (user) => {
     return newUser
 }
 
-const searchUser = async(email, password) => {
-    const user = await User.findOne({where: {
-        email
-    }})
+const searchUser = async (email, password) => {
+    const user = await User.findOne({
+        where: {
+            email
+        }
+    })
     if (!user) return { message: "usuario no registrado" };
     const passwordCompare = await verify(password, user.password)
-    if (!passwordCompare) return { message: "password incorrecto" };
-    return passwordCompare
+    if (!passwordCompare) return {  authenticated: passwordCompare, isAdmin: false };
+    return {
+        authenticated: passwordCompare,
+        isAdmin: user.isAdmin
+    }
 }
 
 const updateUser = async (user, id) => {
@@ -34,7 +39,7 @@ const updateUser = async (user, id) => {
 }
 
 const deleteUserCtrl = async (id) => {
-    const userDeleted = await User.destroy({where: {id }})
+    const userDeleted = await User.destroy({ where: { id } })
     return userDeleted
 }
 
@@ -44,7 +49,7 @@ const getUserById = async (id) => {
 }
 
 const getAllUsers = async () => {
-    const users = await User.findAll({order: [['id', 'ASC']]})
+    const users = await User.findAll({ order: [['id', 'ASC']] })
     return users
 }
 

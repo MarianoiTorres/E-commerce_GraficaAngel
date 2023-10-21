@@ -1,0 +1,33 @@
+.modalBody {
+    color: black;
+    text-align: center;
+}
+
+.modalTitle {
+    color: #E37447;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+
+.modalContainerButtons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modalContainerButtons button:hover {
+    background-color: #E37447;
+}
+
+.modalButtonClose {
+    background-color: #E37447;
+    border: none;
+}
+
+.modalButtonClose:hover {
+    background-color: #E37447;
+    border: none;
+    background-color: #060709;
+}

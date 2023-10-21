@@ -13,6 +13,8 @@
     gap: 20px;
 }
 
+
+
 .deleteProductCart {
     width: 30px;
     height: 30px;
@@ -25,6 +27,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #E4E2DD;
+    color: black;
+    font-weight: 700;
 }
 
 .cart-table {
@@ -38,9 +43,14 @@
     background-color: #E37447;
 }
 
+.cart-table tbody tr{
+        background-color: rgba(27, 27, 27, 0.5);
+        backdrop-filter: blur(3px);
+}
+
 .product {
     border-bottom: 1px solid #9CA69F;
-    color: black;
+    color: #E4E2DD;
     font-weight: 500;
     height: 85px;
 }
@@ -79,6 +89,9 @@
 .buttonClearCart {
     margin-top: 5px;
     margin-bottom: 5px;
+    background-color: #E4E2DD;
+    color: black;
+    font-weight: 700;
 }
 
 .containerTotalCart {
@@ -92,11 +105,13 @@
     width: 40%;
     min-height: 300px;
     height: fit-content;
-    color: black;
+    color: #E4E2DD;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap:10px;
+    background-color: rgba(27, 27, 27, 0.5);
+    backdrop-filter: blur(3px);
 }
 
 .totalCart p {
@@ -135,6 +150,9 @@
 
 .containerButtonBuy button {
     width: 90%;
+    background-color: #E4E2DD;
+    color: black;
+    font-weight: 700;
 }
 
 .dropDownCart  {
@@ -177,9 +195,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 4px 4px 17px rgba(0, 0, 0, 0.5);
+    box-shadow: 4px 4px 17px rgba(105, 105, 105, 0.5);
     border-radius: 30px;
     color: #060709;
+    background-color: #E4E2DD;
 }
 
 .empty-cart button {
