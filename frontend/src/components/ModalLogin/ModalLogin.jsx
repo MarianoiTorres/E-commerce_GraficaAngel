@@ -13,9 +13,11 @@ const ModalLogin = ({ show, onHide }) => {
             show={show} onHide={onHide}
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
+            className='modalBackground'
             centered
-        >
-            <Modal.Header>
+            >
+            <Modal.Header className='modalHeader'>
+               
                 <Modal.Title id="contained-modal-title-vcenter" className='modalTitle'>
                     Debes iniciar sesión
                 </Modal.Title>
@@ -29,7 +31,7 @@ const ModalLogin = ({ show, onHide }) => {
                     <Link to='/register'><button>Registrarse</button></Link>
                 </div>
             </Modal.Body>
-            <Modal.Footer>
+            <Modal.Footer className='modalFooter'>
                 <Button onClick={onHide} className='modalButtonClose'>Cancelar</Button>
             </Modal.Footer>
         </Modal>

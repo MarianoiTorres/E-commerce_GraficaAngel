@@ -1,13 +1,21 @@
 import './SideBar.css'
 import logo from '../../assets/logosinfondo.png'
-import { FaUsers, FaStoreAlt} from 'react-icons/fa';
+import { FaUsers, FaStoreAlt } from 'react-icons/fa';
 import { FaMoneyBillTrendUp } from 'react-icons/fa6';
 import { IoIosCreate } from 'react-icons/io';
 import { AiFillHome } from 'react-icons/ai';
 import { FiLogOut } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { closeSesion } from '../../Redux/Actions/Actions';
 
-const SideBar = ({setCurrentSelection}) => {
+const SideBar = ({ setCurrentSelection }) => {
+
+    const dispatch = useDispatch()
+
+    const closeSesionhandleLogout = () => {
+        dispatch(closeSesion())
+    }
 
     return (
         <div className='containerSideBar'>
@@ -24,7 +32,7 @@ const SideBar = ({setCurrentSelection}) => {
             <p className='titlesSideBar'>Opciones de Cuenta</p>
             <ul className='ulAccount'>
                 <li><Link to='/'><AiFillHome />Inicio</Link></li>
-                <li><Link to='/'><FiLogOut/>Cerrar sesion</Link></li>
+                <li><Link to='/' onClick={closeSesionhandleLogout}><FiLogOut  />Cerrar sesion</Link></li>
             </ul>
         </div>
     )
