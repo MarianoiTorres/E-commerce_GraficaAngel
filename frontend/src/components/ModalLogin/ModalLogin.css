@@ -1,6 +1,17 @@
 .modalBody {
     color: black;
     text-align: center;
+    background-color: #E4E2DD;
+}
+
+.modalHeader {
+    background-color: #E4E2DD;
+    border-bottom: 2px solid white;
+}
+
+.modalFooter {
+    background-color: #E4E2DD;
+    border-top: 2px solid white;
 }
 
 .modalTitle {

@@ -10,7 +10,7 @@
 .messageLogin {
     position: relative;
     width: 40%;
-    
+    gap: 10px;
     background-image: url(https://img.freepik.com/foto-gratis/cita-inspirada-escrita-taza_23-2149261735.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -18,8 +18,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
-
 }
 
 .messageLogin::after {
@@ -64,7 +62,7 @@
     align-items: center;
     gap: 10px;
     position: relative;
-
+    
 }
 
 

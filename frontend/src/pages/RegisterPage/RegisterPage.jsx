@@ -26,7 +26,9 @@ const RegisterPage = () => {
 
     const createNewUser = async (event) => {
         event.preventDefault()
-
+        const errors = Object.values(user)
+        console.log(errors.includes(''));
+        if(errors.includes('')) return
         const response = await axios.post('http://localhost:3001/grafica/users/register', user)
 
         setUser({

@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
-import style from './ProductCard.css'
-import ModalLogin from '../ModalLogin/ModalLogin';
+import  './ProductCard.css'
 
 // TARJETA DE CADA PRODUCTO 
 const ProductCard = ({ id, name, detail, image, price, stock, onShowModal }) => {

@@ -48,10 +48,9 @@ const Footer = () => {
                     <div className='angel__footer-links_div'>
                         <h4>Social</h4>
                         <div className='socialmedia'>
-                        <p><img src={facebook} alt="" className='redes' /></p>
-                        <p><img src={instagram} alt="" className='redes'/></p>
-                        <p><img src={twitter} alt="" className='redes'/></p>
-                        <p><img src={web} alt="" className='redes'/></p>
+                        <a href='https://www.facebook.com/profile.php?id=100066881823608' target='_blank'><img src={facebook} alt="" className='redes' /></a>
+                        <a href='https://www.instagram.com/graficaangellomas/' target='_blank'><img src={instagram} alt="" className='redes'/></a>
+                        <a href='' target='_blank'><img src={web} alt="" className='redes'/></a>
                     </div>
                     </div>
 

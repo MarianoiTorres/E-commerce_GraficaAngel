@@ -27,7 +27,8 @@ const LoginPage = () => {
 
     const login = (event) => {
         event.preventDefault()
-        if(user.email.length === 0 && password.email.length === 0) return
+        const errors = Object.values(user)
+        if(errors.includes('')) return
         dispatch(userAuth(user))
 
         setUser({
