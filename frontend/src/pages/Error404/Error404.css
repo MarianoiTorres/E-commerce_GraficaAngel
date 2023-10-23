@@ -38,3 +38,38 @@
 align-items: center;
 justify-content: center;
 }
+
+@media screen and (max-width: 910px){
+.error404{
+    display: block;
+    
+}
+.error{
+    width: 180px;
+    
+}
+.oops{
+    width: 100%;
+    font-size: 25px;
+    font-weight: 700;
+    padding-top: 10%;
+}
+.losiento{
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+.botonvolver {
+    width: 40%;
+    border-radius: 50px;
+    background-color: #E37447;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+}
+.botonvolver:hover {
+    background-color: #DF5725;
+}
+
+}
