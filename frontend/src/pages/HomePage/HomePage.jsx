@@ -46,7 +46,7 @@ const HomePage = () => {
 
                     </div>
                 </div>
-
+                
                 <div className='box'>
                     <h2 className='subTittle'> Más vendidos</h2>
                     <div className='boxProduct'>
