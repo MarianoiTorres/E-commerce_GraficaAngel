@@ -2,8 +2,9 @@ const { newOrder, receiveWebhook, getAllSales } = require("../controllers/salesC
 
 const createOrder = async (req, res) => {
     try {
-        const { cart, userId } = req.body
-        const order = await newOrder(cart, userId)
+        const { cart, userId, deliver } = req.body
+
+        const order = await newOrder(cart, userId, deliver)
         res.status(200).json(order)
     } catch (error) {
         res.status(400).json({ error: error.message })

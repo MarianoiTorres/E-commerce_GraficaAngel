@@ -9,8 +9,8 @@ const {
 
 const registerUser = async (req, res) => {
     try {
-        const { firstname, lastname, email, password } = req.body
-        const createdUser = await createUser({ firstname, lastname, email, password })
+        const { firstname, lastname, email, password, age, phone } = req.body
+        const createdUser = await createUser({ firstname, lastname, email, password, age, phone })
         res.status(200).json(createdUser)
     } catch (error) {
         res.status(400).json({ error: error.message })

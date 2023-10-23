@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import style from './LoginPage.module.css'
+import './LoginPage.css'
 import { useState } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { userAuth } from '../../Redux/Actions/Actions';
 
 // Pagina para iniciar sesion
 const LoginPage = () => {
+
+    const dispatch = useDispatch()
 
     const navigate = useNavigate();
 
@@ -23,35 +27,45 @@ const LoginPage = () => {
 
     const login = (event) => {
         event.preventDefault()
-
-        axios.post('http://localhost:3001/grafica/users/login', user)
-            .then(response => {
-                console.log(response.data);
-            })
+        const errors = Object.values(user)
+        if(errors.includes('')) return
+        dispatch(userAuth(user))
 
         setUser({
             email: '',
             password: ''
         })
+
+        navigate('/')
     }
 
     return (
-        <div className={style.container}>
-            <form onSubmit={login} className={style.form}>
+        <div className='containerLogin'>
+            <div className='messageLogin'>
+                <h1>¡Bienvenido de nuevo a Gráfica Ángel!</h1>
+                <p>Regístrate y Personaliza tus Propios Productos Sublimables</p>
+            </div>
+            <div className='containerFormLogin'>
+                <Link to='/' className='backPrincipalPage'>Inicio</Link>
+                <div className='containerTitleForm'>
+                    <p>Inicio de Sesion</p>
+                </div>
+                <form onSubmit={login} className='formLogin'>
 
-                <input placeholder='Email' type="text" name="email" onChange={onChangeHandler} value={user.email} />
+                    <input placeholder='Email' type="text" name="email" onChange={onChangeHandler} value={user.email} />
 
-                <input placeholder='Password' type="password" name="password" onChange={onChangeHandler} value={user.password} />
+                    <input placeholder='Contraseña' type="password" name="password" onChange={onChangeHandler} value={user.password} />
 
-                <button className={style.button} type="submit">Sign In</button>
+                    <button className='buttonLogin' type="submit">Iniciar Sesión</button>
 
-                <p>Don't have an account yet?</p>
+                    <p className='noAccount'>¿Aún no tienes una cuenta?</p>
 
-                <Link to='/register'><button className={style.button} type='button'>Sign Up</button></Link>
+                    <Link to='/register'><button className='buttonLogin' type='button'>Registrarse</button></Link>
 
-            </form>
+                </form>
+            </div>
         </div>
     )
 }
 
-export default LoginPage
+export default LoginPage 

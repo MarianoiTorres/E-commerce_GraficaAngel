@@ -1,0 +1,91 @@
+
+.containerSideBar {
+    background-color: none;
+    width: 19%;
+    height: 100vh;
+    padding: 30px;
+}
+
+.containerLogo {
+    width: 100%;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerLogo img{
+    width: 75%;
+}
+
+.ulMenu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 7px;
+    padding: 0;
+}
+
+
+.ulMenu li {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #E4E2DD;
+    transition: 0.3s ease-in-out;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 6px;
+    padding-left:8px;
+}
+
+.ulMenu li:hover {
+    color: #DF5725;
+    cursor: pointer;
+}
+
+.ulAccount {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 7px;
+    padding: 0;
+    
+}
+
+.ulAccount li {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #E4E2DD;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 6px;
+    padding-left:8px;
+}
+
+.ulAccount li a {
+    text-decoration: none;
+    color: #E4E2DD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.ulAccount li a:hover {
+    color: #DF5725;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.titlesSideBar {
+    font-weight: 700;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

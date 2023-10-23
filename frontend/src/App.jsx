@@ -13,6 +13,9 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import DetailPage from './pages/DetailPage/DetailPage';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer';
+import Contact from './pages/Contact/Contact';
+import Error from './pages/Error404/Error404'
+import Error404Page from './pages/Error404/Error404';
 
 
 function App() {
@@ -23,13 +26,16 @@ function App() {
 
   useEffect(() => {    // Prueba para cargar el estado global
     dispatch(getAllProducts())
-    console.log('listo');
+    console.log('listo Productos');
   }, [])
 
   return (
     <div className='app'>
-      {
-        <NavBar />
+      {location.pathname !== '/register' && 
+      location.pathname !== '/dashboard' && 
+      location.pathname !== '/login' && 
+    
+      <NavBar />
       }
       <div className='content'>
         <Routes>
@@ -41,11 +47,17 @@ function App() {
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/products' element={<ProductsPage />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/error404' element={<Error404Page></Error404Page>} />
         </Routes>
+
       </div>
-      {
-        <Footer/>
-      }
+      {location.pathname !== '/register' &&
+      location.pathname !== '/dashboard' &&  
+      location.pathname !== '/login' && 
+      <Footer />}
+
+
     </div>
   )
 }

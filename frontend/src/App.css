@@ -8,11 +8,14 @@
 .app {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
+background-image: url(./assets/bg1.jpg);
+
 }
 
 .content {
   flex: 1;
+
   overflow-y: auto; /* Agrega un desplazamiento vertical si el contenido es demasiado largo */
 }
 
@@ -22,9 +25,7 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -49,5 +50,5 @@
 }
 
 .read-the-docs {
-  color: #888;
+  color: black;
 }

@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424 ;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,12 +16,10 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+
+  text-decoration: inherit; 
 }
-a:hover {
-  color: #535bf2;
-}
+
 
 body {
   margin: 0;
@@ -29,6 +27,22 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #242424 !important;
+  color: #E4E2DD;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+input {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #E37447;
+  border: solid 1px #E4E2DD;
+}
+
+input::placeholder{
+  color: #E4E2DD;
 }
 
 h1 {
@@ -43,13 +57,11 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #060709;
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

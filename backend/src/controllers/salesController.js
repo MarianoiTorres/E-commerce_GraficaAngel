@@ -3,16 +3,7 @@ const mercadopago = require('mercadopago')
 const { MP_ACCESS_TOKEN } = process.env
 const nodemailer = require('nodemailer')
 
-const newOrder = async (cart, userId) => {
-    /*cart": [
-        {
-            title:"a",
-            unit_price: 5,
-            currency_id: "ARS",
-            quantity: 1,
-            id: 1 (productId)
-        }
-    ]*/
+const newOrder = async (cart, userId, deliver) => {
     mercadopago.configure({
         access_token: MP_ACCESS_TOKEN
     })
@@ -20,12 +11,15 @@ const newOrder = async (cart, userId) => {
     const result = await mercadopago.preferences.create({
         items: cart,
         back_urls: {
-            success: 'http://localhost:3001/grafica/sales/success',
-            failure: 'http://localhost:3001/grafica/sales/failure',
-            pending: 'http://localhost:3001/grafica/sales/pending'
+            success: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/success',
+            failure: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/failure',
+            pending: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/pending'
         },
-        notification_url: 'https://b125-190-136-227-235.ngrok.io/grafica/sales/webhook',
-        external_reference: String(userId)
+        notification_url: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/webhook',
+        external_reference: String(userId),
+        metadata: {
+            deliver: deliver
+        }
     })
 
     //console.log(result.response.init_point);
@@ -37,9 +31,10 @@ const receiveWebhook = async (payment) => {
     if (payment.type === 'payment') {
         const data = await mercadopago.payment.findById(payment['data.id'])
         const userId = await data.response.external_reference   //userId
+        console.log(data.response.metadata);
         const user = await User.findByPk(userId)
         const items = await data.response.additional_info.items
-        console.log(items);
+        console.log(data.response.transaction_details.total_paid_amount);
         const productsId = items.map(product => product.id)
 
         const allProducts = await Product.findAll({
@@ -58,7 +53,9 @@ const receiveWebhook = async (payment) => {
                     productId: Number(cartItem.id),
                     quantity: Number(cartItem.quantity),
                     status: data.response.status,
-                    total: total
+                    total: total,
+                    payment_method: data.response.payment_method.id,
+                    deliver: data.response.metadata.deliver
                 })
 
                 if (newSale)  // ===> Descuento de stock
@@ -102,8 +99,8 @@ const receiveWebhook = async (payment) => {
                             </thead>
                             <tbody>
                               ${items
-                                .map(
-                                  (product) => `
+                        .map(
+                            (product) => `
                                     <tr>
                                       <td>${product.title}</td>
                                       <td>${product.quantity}</td>
@@ -111,8 +108,8 @@ const receiveWebhook = async (payment) => {
                                       <td>$${product.unit_price * product.quantity}</td>
                                     </tr>
                                   `
-                                )
-                                .join('')}
+                        )
+                        .join('')}
                             </tbody>
                         </table>
                         </body>
@@ -121,15 +118,70 @@ const receiveWebhook = async (payment) => {
 
             };
 
+            const mailOptionsSale = {
+                from: 'Remitente <practiceapplications0@gmail.com>',
+                to: 'marianotorres699@gmail.com',
+                subject: `Nueva Venta - Grafica Angel`,
+                html: `
+                <html>
+                    <head>
+                      <title>Confirmación de Compra</title>
+                    </head>
+                    <body>
+                      <h1>Confirmación de Compra</h1>
+                      <p>Le informamos que se ha realizado una nueva compra en su tienda en línea. A continuación, se detallan los datos de la transacción:</p>
+                      <ul>
+                        <li><strong>Nombre del Cliente:</strong> ${user.firstname + ' ' + user.lastname}</li>
+                        <li><strong>Fecha de la Compra:</strong> ${data.response.date_approved.split("T")[0]}</li>
+                      <p>Productos Adquiridos:</p>
+                      <table border="1">
+                            <thead>
+                              <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              ${items
+                        .map(
+                            (product) => `
+                                    <tr>
+                                      <td>${product.title}</td>
+                                      <td>${product.quantity}</td>
+                                      <td>$${product.unit_price}</td>
+                                      <td>$${product.unit_price * product.quantity}</td>
+                                    </tr>
+                                  `
+                        )
+                        .join('')}
+                            </tbody>
+                        </table>
+                      <p><strong>Total de la Compra:</strong> ${data.response.transaction_details.total_paid_amount}</p>
+                      <p><strong>Método de Pago:</strong> ${data.response.payment_method.id}</p>
+                      <p><strong>Tipo de entrega:</strong> ${data.response.metadata.deliver}</p>
+                    </body>
+                </html>
+                `
+            }
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
-                    console.error('Error al enviar el correo:', error);
+                    console.error('Error al enviar el correo al cliente:', error);
+                } else {
+                    console.log('Correo enviado:', info.response);
+                }
+            });
+
+            transporter.sendMail(mailOptionsSale, (error, info) => {
+                if (error) {
+                    console.error('Error al enviar el correo al propietario:', error);
                 } else {
                     console.log('Correo enviado:', info.response);
                 }
             });
         }
-        
+
         return sales
     }
 }

@@ -1,0 +1,95 @@
+.input{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 30px;
+
+
+}
+
+.input input{
+    width: 80%;
+    height: 35px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E4E2DD;
+    border: solid 1px #DF5725;
+}
+
+.input input::placeholder{
+    color: #000000;
+}
+.input textarea::placeholder{
+    color: #000000;
+}
+
+
+textarea{
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: #E4E2DD;
+    border: solid 1px #DF5725;
+}
+.agradecimientocontactocontenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.trabajamosjuntos{
+    color: #E4E2DD;
+    width: 300px;
+
+}
+.contact{
+    width: 60%;
+    height: 730px;
+    background-color: none;
+text-align: center;
+border-radius: 30px;
+padding: 20px;
+
+overflow: hidden;
+border: solid 1px #E4E2DD;
+
+
+
+}
+
+.agradecimientocontacto{
+    text-align: center;
+    width: 80%;
+    padding-bottom: 30px;
+    text-align: justify;
+    font-weight: 500;
+    color: #E4E2DD;
+    font-size: 15px;
+
+}
+
+.contactcontainer{
+
+    display: flex;
+
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.botonenviar {
+    width: 80%;
+    border-radius: 50px;
+    background-color: #E37447;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+}
+.botonenviar:hover {
+    background-color: #DF5725;
+}

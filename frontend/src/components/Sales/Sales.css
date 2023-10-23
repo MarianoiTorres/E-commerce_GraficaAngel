@@ -1,0 +1,28 @@
+.containerTitleUser {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.containerTitleUser h1 {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tableHead tr th{
+    background: none;
+    border: 1px solid #E4E2DD;
+    color: #E4E2DD;
+    padding: 20px;
+
+
+  }
+
+  .ventastitulo{
+    width: 350px;
+    margin-bottom: 100px;
+
+  }

@@ -1,0 +1,98 @@
+.spot{
+  border-radius: .5rem;
+  border: #DF5725 solid 1px;
+  box-shadow: 0px 0px 5px white;
+  margin-top: .1rem;
+}
+
+.subTittle{
+  color: #DF5725;
+  text-align: start;
+  text-shadow: 1px 1px 10px black;
+  width: 99.9%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.308);
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: .5rem 1rem;
+  margin: .5rem;
+  background-color: #ffffff3b;
+  border-radius: .5rem ;
+  border: 1px solid rgba(255, 255, 255, 0.308) ;
+}
+
+.boxProduct{
+  border: 1px solid rgba(255, 255, 255, 0.308) ;
+  padding: .4rem;
+  border-radius: .3rem;
+  width: 10rem;
+  height: 13.2rem;
+}
+
+.boxProduct:hover{
+  padding: .6rem;
+  background-color: rgba(255, 255, 255, 0.11);
+  cursor: pointer;
+}
+
+
+
+.prodTittle{
+  text-align: center;
+  font-size: 1.2rem;
+  text-decoration:underline;
+  text-shadow: 1px 1px 1px black;
+}
+
+.product{
+  border-radius: 1rem ;
+  box-shadow: 1px 1px 3px black;
+}
+
+.boxPrice{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .3rem;
+  border: 1px solid rgba(255, 255, 255, 0.308) ;
+  background-color: #df57254b;
+  margin-top: .5rem;
+  padding: .2rem;
+}
+
+.rebaja{
+  font-size: 1.2rem;
+  color: #DF5725;
+  text-shadow: 1px 2px 3px black;
+  margin-bottom: -0.1rem;
+  padding-right: 1rem;
+}
+
+.price{
+  text-decoration: line-through;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: -0.1rem;
+}
+
+
+.onlyPrice{
+  border-radius: .3rem;
+  border: 1px solid rgba(255, 255, 255, 0.308) ;
+  background-color: #df57254b;
+  text-align: center;
+  font-size: 1.4rem;
+  margin-top: .5rem;
+  margin-bottom: -0.1rem;
+  color: #DF5725;
+  text-shadow: 1px 2px 3px black;
+}
+
+.stock{
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+  margin-top: .2rem;
+  margin-bottom: -0.1rem;
+}

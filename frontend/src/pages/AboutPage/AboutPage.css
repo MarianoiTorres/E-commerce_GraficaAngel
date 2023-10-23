@@ -1,0 +1,125 @@
+#bodyabout {
+
+    font-family: sans-serif;
+    letter-spacing: 0,03em;
+    line-height: 1.6;
+    background-color: none;
+    overflow: hidden;
+    margin-bottom: 30px;
+    
+}
+
+
+.banner{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    filter: brightness(50%); 
+}
+.containercards {
+    width:100%;
+
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+
+    
+    
+   
+} 
+
+p{
+    text-align: justify;
+}
+.fondocard {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #DF5725;
+    border-radius: 20px;
+  }
+  .containercardanimation {
+    position: relative;
+    width: 45%;
+  }
+
+  .containercardanimation:hover .overlay {
+    opacity: 1;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    
+  }
+  
+  .text {
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+
+.containercards{
+    gap: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: .5% 6%;
+}
+h2.titulo{
+    font-weight: 700;
+}
+.nuestrahistoria{
+width: 300px;
+
+
+color: black;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-weight: 900;
+
+}
+.descripciongrafica{
+font-weight: 0;
+    width:92%;
+    font-size: 15px;
+}
+.containercards .cardinfo { 
+   background-color: none;
+   width: 49%;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.25s;
+    background-color: none;
+    color: #E4E2DD;
+    border: solid 1px #E4E2DD;
+    padding: 5%;
+
+
+   
+}
+
+
+.containercards .cardinfo:hover {
+    transform: translateY(-15px);
+    border: 1px solid #DF5725;
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
