@@ -42,7 +42,7 @@ const LoginPage = () => {
     return (
         <div className='containerLogin'>
             <div className='messageLogin'>
-                <h1>¡Bienvenido de nuevo a Grafica Angel!</h1>
+                <h1>¡Bienvenido de nuevo a Gráfica Ángel!</h1>
                 <p>Regístrate y Personaliza tus Propios Productos Sublimables</p>
             </div>
             <div className='containerFormLogin'>
@@ -56,7 +56,7 @@ const LoginPage = () => {
 
                     <input placeholder='Contraseña' type="password" name="password" onChange={onChangeHandler} value={user.password} />
 
-                    <button className='buttonLogin' type="submit">Iniciar Sesion</button>
+                    <button className='buttonLogin' type="submit">Iniciar Sesión</button>
 
                     <p className='noAccount'>¿Aún no tienes una cuenta?</p>
 

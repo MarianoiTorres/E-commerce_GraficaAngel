@@ -54,7 +54,7 @@ const NavBar = () => {
                             </NavLink>
                         </li>
                         {userAuth.authenticated && <li onClick={handleLogout}>
-                            Cerrar sesion
+                        <NavLink to="/">Cerrar sesión</NavLink>
                         </li>}
                     </ul>
                 </div>
