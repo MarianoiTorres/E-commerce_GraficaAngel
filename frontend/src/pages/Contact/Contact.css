@@ -9,31 +9,31 @@ gap: 30px;
 }
 
 .input input{
-    width: 100%;
+    width: 80%;
     height: 35px;
     padding: 10px;
     border-radius: 20px;
     border: none;
-    background-color: #E37447;
-    border: solid 1px #E4E2DD;
+    background-color: #E4E2DD;
+    border: solid 1px #DF5725;
 }
 
 .input input::placeholder{
-    color: #E4E2DD;
+    color: #000000;
 }
 .input textarea::placeholder{
-    color: #E4E2DD;
+    color: #000000;
 }
 
 
 textarea{
-    width: 100%;
+    width: 80%;
     height: 150px;
     padding: 10px;
     border-radius: 20px;
     border: none;
-    background-color: #E37447;
-    border: solid 1px #E4E2DD;
+    background-color: #E4E2DD;
+    border: solid 1px #DF5725;
 }
 .agradecimientocontactocontenedor{
     display: flex;
@@ -52,16 +52,17 @@ textarea{
 text-align: center;
 border-radius: 30px;
 padding: 20px;
-box-shadow: 4px 4px 17px rgba(0, 0, 0, 0.5);
+
 overflow: hidden;
 border: solid 1px #E4E2DD;
-background-color: rgba(46, 46, 46, 0.5);
-        backdrop-filter: blur(5px);
+
+
+
 }
 
 .agradecimientocontacto{
     text-align: center;
-    width: 800px;
+    width: 80%;
     padding-bottom: 30px;
     text-align: justify;
     font-weight: 500;
@@ -78,21 +79,17 @@ background-color: rgba(46, 46, 46, 0.5);
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-
-.botonenviar{
-   margin-bottom: 150px;
-   width: 150px;
-   background-color: #E4E2DD;
-   border: 1px solid #E4E2DD;
-   transition: background-color 0.9s ease;
-   color: black;
-   font-size: 20px;
-   font-weight: 800;
-}
-
-.botonenviar:hover{
-    background-color: #E37447;
-    color: white;
     
+}
+
+.botonenviar {
+    width: 80%;
+    border-radius: 50px;
+    background-color: #E37447;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+}
+.botonenviar:hover {
+    background-color: #DF5725;
 }
