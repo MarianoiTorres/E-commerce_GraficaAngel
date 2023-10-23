@@ -4,6 +4,7 @@ import { deleteUser, getAllUsers } from "../../Redux/Actions/Actions";
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Users.css'
+import usuarios from './../../assets/usuarios.png'
 const Users = () => {
     const users = useSelector(state => state.users)
 
@@ -17,7 +18,7 @@ const Users = () => {
     return (
         <div className='users'>
             <div className="containerTitleUser">
-                <h1>USUARIOS</h1>
+                <h1><img className="ventastitulo" src={usuarios} alt="" /></h1>
             </div>
 
 

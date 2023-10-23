@@ -2,6 +2,7 @@ import { useState } from "react"
 import './NewProduct.css'
 import axios from 'axios'
 import Form from 'react-bootstrap/Form';
+import nuevoproducto from './../../assets/nuevoproducto.png'
 
 const NewProduct = () => {
 
@@ -58,7 +59,7 @@ const NewProduct = () => {
         <div className="containerCreateProduct">
             <div className="containerForm">
                 <form onSubmit={handleSubmit} className="formCreateNewProduct">
-                    <h3 className="titleFormProduct">Nuevo Producto</h3>
+                    <h3 className="titleFormProduct"><img className="nuevoproducto" src={nuevoproducto}></img></h3>
                     <div className='labelsAndInputs'>
                         <label htmlFor="name">Nombre</label>
                         <input

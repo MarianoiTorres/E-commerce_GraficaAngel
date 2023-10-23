@@ -64,6 +64,9 @@
     border: none !important;
 }
 
+.nuevoproducto{
+    width: 300px;
+}
 .buttonSubmit {
 
     color: #E4E2DD;
