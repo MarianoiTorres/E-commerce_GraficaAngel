@@ -1,12 +1,44 @@
-import { useState } from "react"
-import { useSelector } from 'react-redux';
-import ProductCard from '../../components/ProductCard/ProductCard';
+
 import "./homePage.css"
 import publicidad from '../../assets/spotPublicitario.mp4'
 
+
 // Pagina de inicio
+
 const HomePage = () => {
-    // DEJO ESTO POR SI LES INTERESA, ES UN CARRUSEL DE IMAGENES DE LA IMPRENTA
+    
+    return (
+            <div>
+                <video width='80%' autoPlay muted loop src={publicidad}/>
+
+                <div className="box">
+                    <h2>¡Aprobecha estos descuentos!</h2>
+                    <div className="contenedorDescuentos">
+                        
+                    </div>
+                </div>
+
+                <div className="box">
+                    <h2>Productos Nuevos</h2>
+                    <div className="contenedorNewProduct">
+                        
+                    </div>
+                </div>
+                <div className="box">
+                    <h2>Productos mas Vendidos</h2>
+                    <div className="contenedorMasVendidos">
+                        
+                    </div>
+                </div>
+
+            </div>
+    )
+}
+
+export default HomePage
+
+
+// DEJO ESTO POR SI LES INTERESA, ES UN CARRUSEL DE IMAGENES DE LA IMPRENTA
 
     // const images = [
     //     'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -33,32 +65,3 @@ const HomePage = () => {
     // const next = () => {
     //     selectNewImage(selectedIndex, images)
     // }
-
-    const productsState = useSelector((state) => state.products)
-
-    return (
-        <div>
-            {/* <div className="boxCarrusel">
-                <button className='botones' onClick={previous}> {'<'} </button>
-                <img className={loaded ? "carruselDos" : "carruselUno"} src={selectedImage} alt='Carrusel' onLoad={()=>{setLoaded(true)}}/>
-                <button className='botones' onClick={next}>{'>'}</button>
-            </div> */}
-
-            <video width='80%' autoPlay muted loop src={publicidad}/>
-
-            <div className="box">
-                <h2>¡Aprobecha estos descuentos!</h2>
-            </div>
-
-            <div className="box">
-                <h2>Productos Nuevos</h2>
-            </div>
-            <div className="box">
-                <h2>Productos mas Vendidos</h2>
-            </div>
-
-        </div>
-    )
-}
-
-export default HomePage
