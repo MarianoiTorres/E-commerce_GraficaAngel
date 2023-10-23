@@ -1,0 +1,40 @@
+.error{
+    width: 80%;
+
+}
+
+.oops{
+    width: 100%;
+}
+.botonvolver {
+    width: 30%;
+    border-radius: 50px;
+    background-color: #E37447;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+}
+.botonvolver:hover {
+    background-color: #DF5725;
+}
+
+.losiento{
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+}
+
+.error404{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 300px;
+}
+
+.contenedorerror{
+    height: 50vh;
+    display: flex;
+align-items: center;
+justify-content: center;
+}
