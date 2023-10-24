@@ -1,4 +1,4 @@
-import style from './Error404.css'
+import './Error404.css'
 import NavBar from './../../components/NavBar/NavBar'
 import Footer from './../../components/Footer/Footer'
 import error from './../../assets/error404.png'

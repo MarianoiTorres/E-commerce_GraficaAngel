@@ -34,7 +34,7 @@ function App() {
       {location.pathname !== '/register' && 
       location.pathname !== '/dashboard' && 
       location.pathname !== '/login' && 
-    
+      location.pathname !== '*' && 
       <NavBar />
       }
       <div className='content'>
@@ -48,13 +48,14 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/products' element={<ProductsPage />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/error404' element={<Error404Page></Error404Page>} />
+          <Route path='*' element={<Error404Page></Error404Page>} />
         </Routes>
 
       </div>
       {location.pathname !== '/register' &&
       location.pathname !== '/dashboard' &&  
       location.pathname !== '/login' && 
+      location.pathname !== '*' && 
       <Footer />}
 
 

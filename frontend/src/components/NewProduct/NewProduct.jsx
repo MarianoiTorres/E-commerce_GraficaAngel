@@ -46,6 +46,7 @@ const NewProduct = () => {
         event.preventDefault();
 
         try {
+            console.log(product);
             const response = await axios.post('https://e-commercegraficaangel-production.up.railway.app/grafica/products', product)
             console.log(response.data);
         } catch (error) {

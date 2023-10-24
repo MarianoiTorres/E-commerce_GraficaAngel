@@ -2,6 +2,7 @@ import './Footer.css'
 import facebook from '../../assets/facebook.png'
 import twitter from '../../assets/twitter.png'
 import web from '../../assets/web.png'
+import { Link } from 'react-router-dom'
 import instagram from '../../assets/instagram.png'
 const Footer = () => {
     return (
@@ -11,39 +12,28 @@ const Footer = () => {
                 <div className='angel__footer-links'>
                     <div className='angel__footer-links_div'>
                         <h4>Compañía</h4>
-                        <a href="/">
+                        <Link to='/about' >
                             <p className='links'>Sobre Nosotros</p>
-                        </a>
-                        <a href="/">
-                            <p className='links'>FAQs</p>
-                        </a>
-                        <a href="/">
-                            <p className='links'>Reseñas</p>
-                        </a>
+                        </Link >
                     </div>
                     <div className='angel__footer-links_div'>
                         <h4>Soporte</h4>
-                        <a href="/">
+                        <Link to='/contact'>
                             <p className='links'>Contacto</p>
-                        </a>
-                        <a href="/">
+                        </Link >
+                        <Link to='*' >
                             <p className='links'>Métodos de Pago</p>
-                        </a>
-                        <a href="/">
-                            <p className='links'>Legal</p>
-                        </a>
+                        </Link >
+                        
                     </div>
                     <div className='angel__footer-links_div'>
                         <h4>Productos</h4>
-                        <a href="/">
+                        <Link to='/products'>
                             <p className='links'>Tienda</p>
-                        </a>
-                        <a href="/">
-                            <p className='links'>Mayorista</p>
-                        </a>
-                        <a href="/">
+                        </Link>
+                        <Link to='/contact'>
                             <p className='links'>Solicitar Presupuesto</p>
-                        </a>
+                        </Link>
                     </div>
                     <div className='angel__footer-links_div'>
                         <h4>Social</h4>
@@ -61,18 +51,16 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className='angel__footer-below-links'>
-                        <a href="">
+                        <Link to="*">
                             <div><p className='links'>Términos y Condiciones</p></div>
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="*">
                             <div><p className='links'>Privacidad</p></div>
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="*">
                             <div><p className='links'>Seguridad</p></div>
-                        </a>
-                        <a href="">
-                            <div><p className='links'>Declaración de Cookies</p></div>
-                        </a>
+                        </Link>
+                        
                     </div>
                 </div>
             </div>

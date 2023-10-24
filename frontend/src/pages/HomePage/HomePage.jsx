@@ -1,65 +1,74 @@
 import spotPublicitario from '../../assets/spotPublicitario.mp4'
 import './Home.css'
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import { Card, Button } from 'react-bootstrap';
+import { useSelector } from 'react-redux'
 
 const HomePage = () => {
+    const products = useSelector(state => state.products)
+
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 300, min: 3000 },
+            items: 5,
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+        },
+    };
     
+    const productsMostRecents = products.slice(0,10).sort((a, b) => {
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
+        return dateB - dateA;
+    });;
+
+    console.log(products);
     return (
-        <div>
-            <video 
-                width='90%'
-                muted 
-                autoPlay 
-                loop 
-                src={spotPublicitario}
-                className='spot'
-            />
-            
-            <div>
-                <div className='box'>
-                    <h2 className='subTittle'> Descuentos del Día </h2>
-                    <div className='boxProduct'>
-                        <p className='prodTittle'> Taza Mario Bros</p>
-                        <img 
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNaDRfV1TwGI8ICGt0KScf3bl9VKxqoiqXbkWjxFKtP3P8cCZiivl_hwzGkhKZAKZJeIo&usqp=CAU" 
-                        alt="producto" 
-                        className='product' 
-                        />
-                        <div className='boxPrice'>
-                            <p className='rebaja'>${1500-1500/10}</p>
-                            <p className='price'>${1500}</p>
-                        </div>
-                        <p className='stock'> stock: 30 </p>
-                    </div>
+        <div className='containerHome'>
+            <div className='containerVideo'>
+                <video
+                    width='100%'
+                    muted
+                    autoPlay
+                    loop
+                    src={spotPublicitario}
+                    className='spot'
+                />
+                <div className='dark-overlay'>
+
                 </div>
-
-                <div className='box'>
-                    <h2 className='subTittle'> Nuevos Productos </h2>
-                    <div className='boxProduct'>
-                        <p className='prodTittle'> Taza Mario Bros</p>
-                        <img 
-                        src="https://www.sublimadosaiki.com.ar/store/wp-content/uploads/2020/04/20180717_155411-scaled.jpg" 
-                        alt="producto" 
-                        className='product' 
-                        />
-                        <p className='onlyPrice'> ${1500} </p>
-                        <p className='stock'> stock: 30 </p>
-
-                    </div>
-                </div>
-                
-                <div className='box'>
-                    <h2 className='subTittle'> Más vendidos</h2>
-                    <div className='boxProduct'>
-                        <p className='prodTittle'> Taza Mario Bros</p>
-                        <img 
-                        src="https://www.la-grafika.com.ar/wp-content/uploads/2018/05/0529A937-BAF2-4A69-8E31-51E9AD2AED26.jpeg" 
-                        alt="producto" 
-                        className='product' 
-                        />
-                        <p className='onlyPrice'> ${1500} </p>
-                        <p className='stock'> stock: 30 </p>
-
-                    </div>
+            </div>
+            <div className='containerProductsHome '>
+                <div className='productsHome'>
+                    <h1>PRODUCTOS RECIENTES</h1>
+                    <Carousel responsive={responsive} className='containerCardsCarousel'>
+                        {productsMostRecents.map((card, index) => (
+                          
+                                <div className="containercard" key={index}>
+                                    <div className="card-content">
+                                        <img src={card.image} alt="" className="imagencard" />
+                                        <div className="info-container">
+                                            <div className="info">{card.detail}</div>
+                                        </div>
+                                    </div>
+                                    <p className="nombrecard">{card.name}</p>
+                                    <p className="preciocard">${card.price}</p>
+                                    <button className='agregaralcarrito'>Agregar al carrito</button>
+                                </div>
+                            
+                        ))}
+                    </Carousel>
                 </div>
             </div>
         </div>
