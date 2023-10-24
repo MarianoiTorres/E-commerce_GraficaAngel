@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
                 type: DataTypes.INTEGER,
             },
             price: {
-                type: DataTypes.DECIMAL
+                type: DataTypes.INTEGER
             }
         }
     )
