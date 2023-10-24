@@ -34,7 +34,7 @@ const CartPage = () => {
         const data = cart.map(product => {
             return {
                 title: product.name,
-                unit_price: Number(product.price),
+                unit_price: product.price,
                 currency_id: "ARS",
                 quantity: product.quantity,
                 id: product.id
