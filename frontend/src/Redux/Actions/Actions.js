@@ -62,7 +62,6 @@ export const deleteProduct = (id) => {
 export const deleteUser = (id) => {
     return async(dispatch) => {
         const response = await axios.delete(`https://e-commercegraficaangel-production.up.railway.app/grafica/users/${id}`)
-        //if(response.data[0] !== 1) return
         return dispatch({
             type: DELETE_USER,
             payload: id
