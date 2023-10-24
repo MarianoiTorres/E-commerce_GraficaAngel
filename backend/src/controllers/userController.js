@@ -29,7 +29,8 @@ const searchUser = async (email, password) => {
     if (!passwordCompare) return {  authenticated: passwordCompare, isAdmin: false };
     return {
         authenticated: passwordCompare,
-        isAdmin: user.isAdmin
+        isAdmin: user.isAdmin,
+        id: user.id
     }
 }
 

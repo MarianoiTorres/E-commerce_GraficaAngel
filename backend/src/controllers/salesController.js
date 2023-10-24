@@ -11,9 +11,9 @@ const newOrder = async (cart, userId, deliver) => {
     const result = await mercadopago.preferences.create({
         items: cart,
         back_urls: {
-            success: 'https://https://e-commercegraficaangel-production.up.railway.app/grafica/sales/success',
-            failure: 'https://https://e-commercegraficaangel-production.up.railway.app/grafica/sales/failure',
-            pending: 'https://https://e-commercegraficaangel-production.up.railway.app/grafica/sales/pending'
+            success: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/success',
+            failure: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/failure',
+            pending: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/pending'
         },
         notification_url: 'https://e-commercegraficaangel-production.up.railway.app/grafica/sales/webhook',
         external_reference: String(userId),
