@@ -64,7 +64,7 @@ const HomePage = () => {
                                     </div>
                                     <p className="nombrecard">{card.name}</p>
                                     <p className="preciocard">${card.price}</p>
-                                    <button className='agregaralcarrito'>Agregar al carrito</button>
+                                    
                                 </div>
                             
                         ))}
