@@ -10,7 +10,7 @@ export const CLOSE_SESION_USER_AUTH = 'CLOSE_SESION_USER_AUTH'
 
 export const getAllProducts = () => {
     return async (dispatch) => {
-        const response = await axios.get('http://localhost:3001/grafica/products/all')
+        const response = await axios.get('https://e-commercegraficaangel-production.up.railway.app/grafica/products/all')
         return dispatch({
             type: GET_ALL_PRODUCTS,
             payload: response.data
@@ -20,7 +20,7 @@ export const getAllProducts = () => {
 
 export const getAllUsers = () => {
     return async (dispatch) => {
-        const response = await axios.get('http://localhost:3001/grafica/users/all')
+        const response = await axios.get('https://e-commercegraficaangel-production.up.railway.app/grafica/users/all')
         return dispatch({
             type: GET_ALL_USERS,
             payload: response.data
@@ -30,7 +30,7 @@ export const getAllUsers = () => {
 
 export const getAllSales = () => {
     return async (dispatch) => {
-        const response = await axios.get('http://localhost:3001/grafica/sales/')
+        const response = await axios.get('https://e-commercegraficaangel-production.up.railway.app/grafica/sales/')
         return dispatch({
             type: GET_ALL_SALES,
             payload: response.data
@@ -40,7 +40,7 @@ export const getAllSales = () => {
 
 export const updateProduct = (product, id) => {
     return async (dispatch) => {
-        const response = await axios.put(`http://localhost:3001/grafica/products/${id}`, { product })
+        const response = await axios.put(`https://e-commercegraficaangel-production.up.railway.app/grafica/products/${id}`, { product })
         if (response.data === null) return
         return dispatch({
             type: UPDATE_PRODUCT,
@@ -51,7 +51,7 @@ export const updateProduct = (product, id) => {
 
 export const deleteProduct = (id) => {
     return async (dispatch) => {
-        const response = await axios.delete(`http://localhost:3001/grafica/products/${id}`)
+        const response = await axios.delete(`https://e-commercegraficaangel-production.up.railway.app/grafica/products/${id}`)
         return dispatch({
             type: DELETE_PRODUCT,
             payload: id
@@ -61,7 +61,7 @@ export const deleteProduct = (id) => {
 
 export const deleteUser = (id) => {
     return async(dispatch) => {
-        const response = await axios.delete(`http://localhost:3001/grafica/users/${id}`)
+        const response = await axios.delete(`https://e-commercegraficaangel-production.up.railway.app/grafica/users/${id}`)
         //if(response.data[0] !== 1) return
         return dispatch({
             type: DELETE_USER,
@@ -72,7 +72,7 @@ export const deleteUser = (id) => {
 
 export const userAuth = (user) => {
     return async(dispatch) => {
-        const response = await axios.post(`http://localhost:3001/grafica/users/login`, user)
+        const response = await axios.post(`https://e-commercegraficaangel-production.up.railway.app/grafica/users/login`, user)
         return dispatch({
             type: USER_AUTH,
             payload: response.data

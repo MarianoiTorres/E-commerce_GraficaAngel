@@ -29,7 +29,7 @@ const RegisterPage = () => {
         const errors = Object.values(user)
         console.log(errors.includes(''));
         if(errors.includes('')) return
-        const response = await axios.post('http://localhost:3001/grafica/users/register', user)
+        const response = await axios.post('https://e-commercegraficaangel-production.up.railway.app/grafica/users/register', user)
 
         setUser({
             firstname: '',

@@ -21,7 +21,7 @@ const Contact = () => {
   }
 
   const sendMessage = async() => {
-    const response = await axios.post(`http://localhost:3001/grafica/contact`, {data: message})
+    const response = await axios.post(`https://e-commercegraficaangel-production.up.railway.app/grafica/contact`, {data: message})
     
     setMessage({
       name: '',
