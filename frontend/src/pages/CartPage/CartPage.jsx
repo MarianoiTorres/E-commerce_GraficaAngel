@@ -34,12 +34,13 @@ const CartPage = () => {
         const data = cart.map(product => {
             return {
                 title: product.name,
-                unit_price: product.price,
+                unit_price: Number(product.price),
                 currency_id: "ARS",
                 quantity: product.quantity,
                 id: product.id
             }
         })
+        console.log(data);
         axios.post('https://e-commercegraficaangel-production.up.railway.app/grafica/sales/create-order', { cart: data, userId: userAuth.userId, deliver: deliver })
             .then(response => {
                 console.log(response.data);
