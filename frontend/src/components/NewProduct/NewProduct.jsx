@@ -46,7 +46,7 @@ const NewProduct = () => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/grafica/products', product)
+            const response = await axios.post('https://e-commercegraficaangel-production.up.railway.app/grafica/products', product)
             console.log(response.data);
         } catch (error) {
             console.log(error);

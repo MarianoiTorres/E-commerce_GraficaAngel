@@ -40,7 +40,7 @@ const CartPage = () => {
                 id: product.id
             }
         })
-        axios.post('http://localhost:3001/grafica/sales/create-order', { cart: data, userId: 1, deliver: deliver })
+        axios.post('https://e-commercegraficaangel-production.up.railway.app/grafica/sales/create-order', { cart: data, userId: 1, deliver: deliver })
             .then(response => {
                 console.log(response.data);
                 window.open(response.data, '_blank')
